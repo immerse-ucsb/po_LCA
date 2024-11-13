@@ -1,1 +1,1 @@
-# po_LCA
+# Introduction to LCA with Polytomous Items
