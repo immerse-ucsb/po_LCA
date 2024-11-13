@@ -1,0 +1,18 @@
+TITLE:
+6-Class
+DATA:
+FILE = "C:/Users/dinan/Box/TA - ED 201/Labs/ucsb-mixture-lab3/poLCA/
+election.dat"; 
+VARIABLE:
+NAMES = moralb caresb knowb leadb dishonb moralb1 caresb1 knowb1 leadb1 dishonb1; 
+ MISSING=.;
+ categorical = moralb1-dishonb1; 
+usevar = moralb1-dishonb1;
+classes = c(6); 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 500 100; 
+    processors = 10;
+OUTPUT:
+sampstat residual tech11 tech14 svalues;

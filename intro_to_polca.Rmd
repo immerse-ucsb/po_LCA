@@ -1,0 +1,238 @@
+---
+title: "Polytomous Latent Class Analysis"
+author: "Dina Arch"
+date: "Updated: `r format(Sys.time(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: flatly
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE,
+                      message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
+```
+
+
+`University of California, Santa Barbara`
+
+
+------------------------------------------------------------------------
+
+Load packages
+
+```{r, cache = FALSE}
+
+library(tidyverse)
+library(haven)
+library(glue)
+library(MplusAutomation)
+library(rhdf5)
+library(here)
+library(janitor)
+library(gt)
+library(semPlot)
+library(reshape2)
+library(cowplot)
+library(filesstrings)
+library(hrbrthemes)
+library(poLCA)
+
+here::i_am("intro_to_polca.Rmd")
+```
+
+------------------------------------------------------------------------
+
+## Example: Elections
+
+------------------------------------------------------------------------
+
+"Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. Also potential covariates vote choice, age, education, gender, and party ID. Source: The National Election Studies (2000)." (poLCA, 2016) [See documentation here](https://cran.r-project.org/web/packages/poLCA/poLCA.pdf)
+
+Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. In the election data set, respondents to the 2000 American National Election Study public opinion poll were asked to evaluate how well a series of traits—moral, caring, knowledgable, good leader, dishonest, and intelligent—described presidential candidates Al Gore and George W. Bush. Each question had four possible choices: (1) extremely well; (2) quite well; (3) not too well; and (4) not well at all.
+
+------------------------------------------------------------------------
+
+### Prepare Data
+
+```{r, eval=TRUE}
+data(election)
+
+# Detaching packages that mask the dpylr functions 
+detach(package:poLCA, unload = TRUE)
+detach(package:MASS, unload = TRUE)
+
+df_election <-  election %>% 
+  clean_names() %>% 
+  select(moralb:dishonb) %>% 
+  mutate(across(everything(), 
+                ~ as.numeric(gsub("\\D", "", .)), 
+                .names = "{.col}1"))
+```
+
+------------------------------------------------------------------------
+
+### Descriptive Statistics
+
+```{r}
+ds <- df_election %>% 
+  pivot_longer(moralb1:dishonb1, names_to = "variable") %>% 
+  count(variable, value) %>%  # Count occurrences of each value for each variable
+  group_by(variable) %>%
+  mutate(prop = n / sum(n)) %>% 
+  arrange(desc(variable))
+
+# Create the table
+prop_table <- ds %>% 
+  gt() %>% 
+  tab_header(title = md("**Descriptive Summary**")) %>%
+  cols_label(
+    variable = "Variable",
+    n = md("*N*"),
+    prop = md("Proportion")
+  ) %>%
+  fmt_number(c("n", "prop"), decimals = 2) %>%  # Format both n and prop columns
+  cols_align(
+    align = "center",
+    columns = c(prop, n)
+  ) 
+
+
+# View the table
+prop_table
+
+# Save as a Word doc
+#gtsave(prop_table, here("figures", "prop_table.docx"))
+```
+
+
+------------------------------------------------------------------------
+
+### Enumeration 
+
+This code uses the `mplusObject` function in the `MplusAutomation` package. 
+
+```{r, eval=FALSE, cache = TRUE}
+
+lca_enumeration  <- lapply(1:6, function(k) {
+  lca_enum  <- mplusObject(
+      
+    TITLE = glue("{k}-Class"), 
+  
+    VARIABLE = glue(
+    "categorical = moralb1-dishonb1; 
+     usevar = moralb1-dishonb1;
+     classes = c({k}); "),
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 500 100; 
+    processors = 10;",
+  
+  OUTPUT = "sampstat residual tech11 tech14 svalues;",
+
+  
+  usevariables = colnames(df_election),
+  rdata = df_election)
+
+lca_enum_fit <- mplusModeler(lca_enum, 
+                            dataout=glue(here("poLCA", "election.dat")),
+                            modelout=glue(here("poLCA", "c{k}_election.inp")) ,
+                            check=TRUE, run = TRUE, hashfilename = FALSE)
+})
+
+```
+ 
+------------------------------------------------------------------------
+
+### Table of Fit 
+
+```{r}
+source("enum_table.txt")
+
+output_election <- readModels(here("poLCA"), filefilter = "election", quiet = TRUE)
+
+# To see rows:
+seeRows(output_election)
+
+# Arguments for `enum_table`
+# 1. readModels objects
+# 2-5. Rows of successfully estimated models 
+enum_table(output_election, 1:6)
+```
+
+------------------------------------------------------------------------
+
+Save table: 
+
+```{r, eval = FALSE}
+#gtsave(fit_table1, here("figures", "fit_table1.png"))
+```
+
+------------------------------------------------------------------------
+
+### Information Criteria Plot
+
+```{r height=5, width=7}
+ic_plot(output_election)
+```
+
+------------------------------------------------------------------------
+
+Save figure:
+
+```{r}
+#ggsave(here("figures", "info_criteria.png"), dpi=300, height=5, width=7, units="in")
+```
+
+------------------------------------------------------------------------
+
+### 4-Class Probability Plot
+
+```{r, fig.width= 12, fig.height= 7}
+source("poLCA_plot")
+
+poLCA_stacked(output_election$c4_election.out, category_labels = c("1" = "1: Extremely well", 
+                                                                "2" = "2: Quite Well", 
+                                                                "3" = "3: Not Too Well", 
+                                                                "4" = "4: Not Well at All"))
+```
+
+
+Alternative plot
+
+```{r, fig.width= 12, fig.height= 7}
+poLCA_grouped(output_election$c4_election.out, category_labels = c("1" = "1: Extremely well", 
+                                                                "2" = "2: Quite Well", 
+                                                                "3" = "3: Not Too Well", 
+                                                                "4" = "4: Not Well at All"))
+```
+
+
+Heatmap
+
+```{r}
+poLCA_heatmap(output_election$c4_election.out, category_labels = c("1" = "1: Extremely well", 
+                                                                "2" = "2: Quite Well", 
+                                                                "3" = "3: Not Too Well", 
+                                                                "4" = "4: Not Well at All"))
+```
+
+------------------------------------------------------------------------
+
+Save figure:
+
+```{r, eval = FALSE}
+#ggsave(here("figures", "C2_Cheat_LCA_Plot.png"), dpi="retina", height=5, width=7, units="in")
+```
+
+------------------------------------------------------------------------
+
+
+![](figures/UCSB_Navy_mark.png){width="75%"}

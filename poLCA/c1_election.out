@@ -1,0 +1,491 @@
+Mplus VERSION 8.10
+MUTHEN & MUTHEN
+11/12/2024  10:55 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  1-Class
+  DATA:
+  FILE = "C:/Users/dinan/Box/TA - ED 201/Labs/ucsb-mixture-lab3/poLCA/
+  election.dat";
+  VARIABLE:
+  NAMES = moralb caresb knowb leadb dishonb moralb1 caresb1 knowb1 leadb1 dishonb1;
+   MISSING=.;
+   categorical = moralb1-dishonb1;
+  usevar = moralb1-dishonb1;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 500 100;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech11 tech14 svalues;
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  20
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1765
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   MORALB1     CARESB1     KNOWB1      LEADB1      DISHONB1
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dinan/Box/TA - ED 201/Labs/ucsb-mixture-lab3/poLCA/election.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            31
+     Number of y missing data patterns           0
+     Number of u missing data patterns          31
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              MORALB1       CARESB1       KNOWB1        LEADB1        DISHONB1
+              ________      ________      ________      ________      ________
+ MORALB1        0.912
+ CARESB1        0.884         0.954
+ KNOWB1         0.896         0.938         0.974
+ LEADB1         0.881         0.920         0.935         0.952
+ DISHONB1       0.850         0.873         0.884         0.871         0.898
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    MORALB1
+      Category 1    0.211          340.000
+      Category 2    0.523          841.000
+      Category 3    0.205          330.000
+      Category 4    0.061           98.000
+    CARESB1
+      Category 1    0.092          155.000
+      Category 2    0.371          625.000
+      Category 3    0.334          562.000
+      Category 4    0.203          342.000
+    KNOWB1
+      Category 1    0.159          274.000
+      Category 2    0.543          933.000
+      Category 3    0.220          379.000
+      Category 4    0.077          133.000
+    LEADB1
+      Category 1    0.158          266.000
+      Category 2    0.501          842.000
+      Category 3    0.242          407.000
+      Category 4    0.099          166.000
+    DISHONB1
+      Category 1    0.044           70.000
+      Category 2    0.182          288.000
+      Category 3    0.412          653.000
+      Category 4    0.362          574.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -9914.800  342019           301
+           -9914.800  606576           151
+           -9914.800  21132            351
+           -9914.800  700349           401
+           -9914.800  36714            201
+           -9914.800  371246           101
+           -9914.800  85462            51
+           -9914.800  188640           451
+           -9914.800  642909           251
+           -9914.800  unperturbed      0
+           -9914.800  462953           7
+           -9914.800  27071            15
+           -9914.800  153942           31
+           -9914.800  7959             256
+           -9914.800  164305           128
+           -9914.800  871851           257
+           -9914.800  188498           258
+           -9914.800  311214           64
+           -9914.800  814975           129
+           -9914.800  622860           259
+           -9914.800  804660           260
+           -9914.800  509733           130
+           -9914.800  616917           261
+           -9914.800  520177           262
+           -9914.800  626891           32
+           -9914.800  565819           65
+           -9914.800  468036           131
+           -9914.800  349263           263
+           -9914.800  358488           264
+           -9914.800  313407           132
+           -9914.800  467339           66
+           -9914.800  321390           133
+           -9914.800  903369           134
+           -9914.800  76974            16
+           -9914.800  749453           33
+           -9914.800  789985           67
+           -9914.800  437181           135
+           -9914.800  232559           136
+           -9914.800  405079           68
+           -9914.800  341041           34
+           -9914.800  685657           69
+           -9914.800  987090           70
+           -9914.800  285380           1
+           -9914.800  359578           458
+           -9914.800  475420           71
+           -9914.800  783110           72
+           -9914.800  679832           302
+           -9914.800  93468            3
+           -9914.800  790452           303
+           -9914.800  92689            304
+           -9914.800  393232           152
+           -9914.800  81117            305
+           -9914.800  484687           306
+           -9914.800  46437            153
+           -9914.800  534864           307
+           -9914.800  692169           308
+           -9914.800  150531           154
+           -9914.800  879338           309
+           -9914.800  996231           310
+           -9914.800  12477            155
+           -9914.800  479273           156
+           -9914.800  972873           157
+           -9914.800  414284           158
+           -9914.800  383986           159
+           -9914.800  456213           160
+           -9914.800  23012            352
+           -9914.800  374219           353
+           -9914.800  193847           354
+           -9914.800  871722           355
+           -9914.800  360419           356
+           -9914.800  850545           357
+           -9914.800  195763           358
+           -9914.800  349562           359
+           -9914.800  563002           360
+           -9914.800  971853           402
+           -9914.800  471040           403
+           -9914.800  605565           404
+           -9914.800  973369           202
+           -9914.800  596257           405
+           -9914.800  926797           406
+           -9914.800  840078           203
+           -9914.800  772131           407
+           -9914.800  55115            408
+           -9914.800  748692           204
+           -9914.800  605161           409
+           -9914.800  746978           410
+           -9914.800  97158            205
+           -9914.800  891531           206
+           -9914.800  637095           207
+           -9914.800  57226            208
+           -9914.800  30098            209
+           -9914.800  835767           210
+           -9914.800  582296           452
+           -9914.800  879211           453
+           -9914.800  263049           454
+           -9914.800  224950           455
+           -9914.800  922596           456
+           -9914.800  769907           457
+           -9914.800  539751           459
+           -9914.800  112586           494
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       15
+
+Loglikelihood
+
+          H0 Value                       -9914.800
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   19859.600
+          Bayesian (BIC)                 19941.739
+          Sample-Size Adjusted BIC       19894.085
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           5224.474
+          Degrees of Freedom                  1005
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           2948.465
+          Degrees of Freedom                  1005
+          P-Value                           0.0000
+
+** Of the 3124 cells in the latent class indicator table, 3
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           1597.140
+          Degrees of Freedom                  2070
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            724.910
+          Degrees of Freedom                  2070
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       1765.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       1765.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             1765          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    MORALB1$1         -1.317      0.061    -21.567      0.000
+    MORALB1$2          1.015      0.056     17.990      0.000
+    MORALB1$3          2.736      0.104     26.243      0.000
+    CARESB1$1         -2.289      0.084    -27.154      0.000
+    CARESB1$2         -0.148      0.049     -3.019      0.003
+    CARESB1$3          1.367      0.061     22.569      0.000
+    KNOWB1$1          -1.663      0.066    -25.234      0.000
+    KNOWB1$2           0.858      0.053     16.260      0.000
+    KNOWB1$3           2.479      0.090     27.457      0.000
+    LEADB1$1          -1.671      0.067    -25.010      0.000
+    LEADB1$2           0.659      0.051     12.815      0.000
+    LEADB1$3           2.211      0.082     27.046      0.000
+    DISHONB1$1        -3.075      0.122    -25.150      0.000
+    DISHONB1$2        -1.232      0.060    -20.506      0.000
+    DISHONB1$3         0.566      0.052     10.831      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.472E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ MORALB1
+    Category 1         0.211      0.010     20.763      0.000
+    Category 2         0.523      0.012     41.975      0.000
+    Category 3         0.205      0.010     20.375      0.000
+    Category 4         0.061      0.006     10.215      0.000
+ CARESB1
+    Category 1         0.092      0.007     13.066      0.000
+    Category 2         0.371      0.012     31.526      0.000
+    Category 3         0.334      0.011     29.043      0.000
+    Category 4         0.203      0.010     20.716      0.000
+ KNOWB1
+    Category 1         0.159      0.009     18.054      0.000
+    Category 2         0.543      0.012     45.172      0.000
+    Category 3         0.220      0.010     22.050      0.000
+    Category 4         0.077      0.006     12.006      0.000
+ LEADB1
+    Category 1         0.158      0.009     17.777      0.000
+    Category 2         0.501      0.012     41.073      0.000
+    Category 3         0.242      0.010     23.174      0.000
+    Category 4         0.099      0.007     13.572      0.000
+ DISHONB1
+    Category 1         0.044      0.005      8.558      0.000
+    Category 2         0.182      0.010     18.760      0.000
+    Category 3         0.412      0.012     33.324      0.000
+    Category 4         0.362      0.012     29.998      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     %C#1%
+
+     [ moralb1$1*-1.31704 ];
+     [ moralb1$2*1.01499 ];
+     [ moralb1$3*2.73556 ];
+     [ caresb1$1*-2.28894 ];
+     [ caresb1$2*-0.14754 ];
+     [ caresb1$3*1.36711 ];
+     [ knowb1$1*-1.66274 ];
+     [ knowb1$2*0.85757 ];
+     [ knowb1$3*2.47862 ];
+     [ leadb1$1*-1.67139 ];
+     [ leadb1$2*0.65943 ];
+     [ leadb1$3*2.21118 ];
+     [ dishonb1$1*-3.07468 ];
+     [ dishonb1$2*-1.23179 ];
+     [ dishonb1$3*0.56607 ];
+
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+     Beginning Time:  22:55:01
+        Ending Time:  22:55:14
+       Elapsed Time:  00:00:13
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen
