@@ -215,15 +215,6 @@ poLCA_grouped(output_election$c4_election.out, category_labels = c("1" = "1: Ext
 ```
 
 
-Heatmap
-
-```{r}
-poLCA_heatmap(output_election$c4_election.out, category_labels = c("1" = "1: Extremely well", 
-                                                                "2" = "2: Quite Well", 
-                                                                "3" = "3: Not Too Well", 
-                                                                "4" = "4: Not Well at All"))
-```
-
 ------------------------------------------------------------------------
 
 Save figure:
