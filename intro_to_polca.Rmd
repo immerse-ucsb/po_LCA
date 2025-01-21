@@ -18,8 +18,24 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
 ```
 
+------------------------------------------------------------------------
 
-`University of California, Santa Barbara`
+# IMMERSE Project
+
+![](figures/IESNewLogo.jpg){style="float: left;" width="300"}
+
+The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
+
+-   Please [visit our website](https://immerse.education.ucsb.edu/) to learn more.
+
+-   Visit our [GitHub](https://github.com/immerse-ucsb) account to access all the IMMERSE materials.
+
+-   Follow us on [Twitter](https://twitter.com/IMMERSE_UCSB)!
+
+How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025).
+IMMERSE Online Resources (IES No. 305B220021).
+Institute of Education Sciences.
+<https://immerse-ucsb.github.io/>
 
 
 ------------------------------------------------------------------------
