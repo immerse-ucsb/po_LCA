@@ -28,33 +28,31 @@ Load packages
 
 ```{r, cache = FALSE}
 
+library(poLCA)
 library(tidyverse)
-library(haven)
-library(glue)
-library(MplusAutomation)
-library(rhdf5)
-library(here)
 library(janitor)
 library(gt)
-library(semPlot)
-library(reshape2)
-library(cowplot)
-library(filesstrings)
-library(hrbrthemes)
-library(poLCA)
+library(MplusAutomation)
+library(here)
+library(glue)
 
 here::i_am("intro_to_polca.Rmd")
 ```
 
 ------------------------------------------------------------------------
 
-## Example: Elections
+## Polytomous LCA 
+
+Polytomous LCA deals with variables that have more than two categories, such as survey questions with responses like `never`, `sometimes`, and `always`. The workflow of a polytomous LCA model is similar to that of an LCA model with binary indicators. However, polytomous LCA captures more complex response patterns, which can make interpretation a bit trickier. The following code demonstrates an example, along with a visualization of the model.
+
 
 ------------------------------------------------------------------------
 
+## Example: Elections
+
 "Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. Also potential covariates vote choice, age, education, gender, and party ID. Source: The National Election Studies (2000)." (poLCA, 2016) [See documentation here](https://cran.r-project.org/web/packages/poLCA/poLCA.pdf)
 
-Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. In the election data set, respondents to the 2000 American National Election Study public opinion poll were asked to evaluate how well a series of traits—moral, caring, knowledgable, good leader, dishonest, and intelligent—described presidential candidates Al Gore and George W. Bush. Each question had four possible choices: (1) extremely well; (2) quite well; (3) not too well; and (4) not well at all.
+Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. In the election data set, respondents to the 2000 American National Election Study public opinion poll were asked to evaluate how well a series of traits—moral, caring, knowledgeable, good leader, dishonest, and intelligent—described presidential candidates Al Gore and George W. Bush. Each question had four possible choices: (1) extremely well; (2) quite well; (3) not too well; and (4) not well at all.
 
 ------------------------------------------------------------------------
 
@@ -71,8 +69,11 @@ df_election <-  election %>%
   clean_names() %>% 
   select(moralb:dishonb) %>% 
   mutate(across(everything(), 
-                ~ as.numeric(gsub("\\D", "", .)), 
-                .names = "{.col}1"))
+                ~ as.factor(as.numeric(gsub("\\D", "", .))), 
+                .names = "{.col}1")) 
+
+# Quick summary
+summary(df_election)
 ```
 
 ------------------------------------------------------------------------
@@ -101,7 +102,6 @@ prop_table <- ds %>%
     align = "center",
     columns = c(prop, n)
   ) 
-
 
 # View the table
 prop_table
@@ -159,7 +159,7 @@ source("enum_table.txt")
 output_election <- readModels(here("poLCA"), filefilter = "election", quiet = TRUE)
 
 # To see rows:
-seeRows(output_election)
+#seeRows(output_election)
 
 # Arguments for `enum_table`
 # 1. readModels objects
@@ -193,25 +193,33 @@ Save figure:
 
 ------------------------------------------------------------------------
 
-### 4-Class Probability Plot
+### 4-Class Probability Plot 
 
-```{r, fig.width= 12, fig.height= 7}
+The functions `poLCA_stacked` and `poLCA_grouped` create visualizations of class probabilities for LCA with polytomous indicators. Each function takes the following arguments:
+
+- **`model_name`**: The LCA model read into R using the `readModels` function from the `MplusAutomation` package.
+- **`category_labels`**: A character vector of category labels for the response options (e.g., survey answers). 
+
+Note: Double check that the labels are in the correct order!
+
+
+```{r, fig.width= 12, fig.height= 8}
 source("poLCA_plot")
 
 poLCA_stacked(output_election$c4_election.out, category_labels = c("1" = "1: Extremely well", 
-                                                                "2" = "2: Quite Well", 
-                                                                "3" = "3: Not Too Well", 
-                                                                "4" = "4: Not Well at All"))
+                                                                   "2" = "2: Quite Well", 
+                                                                   "3" = "3: Not Too Well", 
+                                                                   "4" = "4: Not Well at All"))
 ```
 
 
 Alternative plot
 
-```{r, fig.width= 12, fig.height= 7}
+```{r, fig.width= 12, fig.height= 8}
 poLCA_grouped(output_election$c4_election.out, category_labels = c("1" = "1: Extremely well", 
-                                                                "2" = "2: Quite Well", 
-                                                                "3" = "3: Not Too Well", 
-                                                                "4" = "4: Not Well at All"))
+                                                                   "2" = "2: Quite Well", 
+                                                                   "3" = "3: Not Too Well", 
+                                                                   "4" = "4: Not Well at All"))
 ```
 
 

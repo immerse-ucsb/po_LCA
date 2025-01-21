@@ -1,7 +1,7 @@
 TITLE:
 5-Class
 DATA:
-FILE = "C:/Users/dinan/Box/TA - ED 201/Labs/ucsb-mixture-lab3/poLCA/
+FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/youtube_materials/po_LCA/poLCA/
 election.dat"; 
 VARIABLE:
 NAMES = moralb caresb knowb leadb dishonb moralb1 caresb1 knowb1 leadb1 dishonb1; 

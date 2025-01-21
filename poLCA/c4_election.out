@@ -1,13 +1,13 @@
-Mplus VERSION 8.10
+Mplus VERSION 8.11
 MUTHEN & MUTHEN
-11/12/2024  10:57 PM
+01/20/2025  11:30 PM
 
 INPUT INSTRUCTIONS
 
   TITLE:
   4-Class
   DATA:
-  FILE = "C:/Users/dinan/Box/TA - ED 201/Labs/ucsb-mixture-lab3/poLCA/
+  FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/youtube_materials/po_LCA/poLCA/
   election.dat";
   VARIABLE:
   NAMES = moralb caresb knowb leadb dishonb moralb1 caresb1 knowb1 leadb1 dishonb1;
@@ -98,7 +98,7 @@ Random Starts Specifications
 Link                                                         LOGIT
 
 Input data file(s)
-  C:/Users/dinan/Box/TA - ED 201/Labs/ucsb-mixture-lab3/poLCA/election.dat
+  C:/Users/dnajiarch/Box/IES_IMMERSE/youtube_materials/po_LCA/poLCA/election.dat
 Input data format  FREE
 
 
@@ -875,9 +875,9 @@ TECHNICAL 14 OUTPUT
 
 
 
-     Beginning Time:  22:57:39
-        Ending Time:  22:58:52
-       Elapsed Time:  00:01:13
+     Beginning Time:  23:30:17
+        Ending Time:  23:30:34
+       Elapsed Time:  00:00:17
 
 
 
@@ -890,4 +890,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2023 Muthen & Muthen
+Copyright (c) 1998-2024 Muthen & Muthen

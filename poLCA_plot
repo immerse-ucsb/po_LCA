@@ -1,3 +1,5 @@
+library(cowplot)
+
 poLCA_stacked <- function(model_name, category_labels) {
   # Prepare the plot data
   pp_plots <- data.frame(model_name$parameters$probability.scale) %>% 
@@ -29,6 +31,9 @@ poLCA_stacked <- function(model_name, category_labels) {
   # Create and return the plot
   ggplot(plot_data, aes(x = param, y = Value, fill = category)) +
     geom_bar(stat = "identity", position = "stack") +
+    geom_text(aes(label = sub("^0\\.", ".", sprintf("%.2f", Value))), 
+          position = position_stack(vjust = 0.5), 
+          size = 3, color = "white") +
     facet_wrap(~ Class) +  # Facet by Class
     labs(title = paste("Class Probabilities by Item and Category"), 
          x = "Item", 
@@ -71,6 +76,9 @@ poLCA_grouped <- function(model_name, category_labels) {
   plot_data %>%
   ggplot(aes(x = param, y = Value, fill = category, group = category)) + 
   geom_bar(stat = "identity", position = "dodge") +  # Change position to dodge for grouped bars
+  geom_text(aes(label = sub("^0\\.", ".", sprintf("%.2f", Value))), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5, size = 3) +  # Add text labels above bars without leading zeros
   facet_wrap(~ Class) +  # Facet by Class
   labs(title = "Class Probabilities by Item and Category", 
        x = "Item", 
