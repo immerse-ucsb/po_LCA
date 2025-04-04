@@ -4,10 +4,11 @@ DATA:
 FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/youtube_materials/po_LCA/poLCA/
 election.dat"; 
 VARIABLE:
-NAMES = moralb caresb knowb leadb dishonb moralb1 caresb1 knowb1 leadb1 dishonb1; 
+NAMES = moralb caresb knowb leadb dishonb intelb moralb1 caresb1 knowb1 leadb1
+     dishonb1 intelb1; 
  MISSING=.;
- categorical = moralb1-dishonb1; 
-usevar = moralb1-dishonb1;
+ categorical = moralb1-intelb1; 
+usevar = moralb1-intelb1;
 classes = c(2); 
 ANALYSIS:
 estimator = mlr; 

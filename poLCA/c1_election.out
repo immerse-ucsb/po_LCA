@@ -1,6 +1,6 @@
 Mplus VERSION 8.11
 MUTHEN & MUTHEN
-01/20/2025  11:29 PM
+04/04/2025  12:44 PM
 
 INPUT INSTRUCTIONS
 
@@ -10,10 +10,11 @@ INPUT INSTRUCTIONS
   FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/youtube_materials/po_LCA/poLCA/
   election.dat";
   VARIABLE:
-  NAMES = moralb caresb knowb leadb dishonb moralb1 caresb1 knowb1 leadb1 dishonb1;
+  NAMES = moralb caresb knowb leadb dishonb intelb moralb1 caresb1 knowb1 leadb1
+       dishonb1 intelb1;
    MISSING=.;
-   categorical = moralb1-dishonb1;
-  usevar = moralb1-dishonb1;
+   categorical = moralb1-intelb1;
+  usevar = moralb1-intelb1;
   classes = c(1);
   ANALYSIS:
   estimator = mlr;
@@ -38,7 +39,7 @@ INPUT INSTRUCTIONS
 *** WARNING
   Data set contains cases with missing on all variables.
   These cases were not included in the analysis.
-  Number of cases with missing on all variables:  20
+  Number of cases with missing on all variables:  19
    4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
@@ -49,9 +50,9 @@ INPUT INSTRUCTIONS
 SUMMARY OF ANALYSIS
 
 Number of groups                                                 1
-Number of observations                                        1765
+Number of observations                                        1766
 
-Number of dependent variables                                    5
+Number of dependent variables                                    6
 Number of independent variables                                  0
 Number of continuous latent variables                            0
 Number of categorical latent variables                           1
@@ -59,7 +60,7 @@ Number of categorical latent variables                           1
 Observed dependent variables
 
   Binary and ordered categorical (ordinal)
-   MORALB1     CARESB1     KNOWB1      LEADB1      DISHONB1
+   MORALB1     CARESB1     KNOWB1      LEADB1      DISHONB1    INTELB1
 
 Categorical latent variables
    C
@@ -110,9 +111,9 @@ Input data format  FREE
 
 SUMMARY OF DATA
 
-     Number of missing data patterns            31
+     Number of missing data patterns            55
      Number of y missing data patterns           0
-     Number of u missing data patterns          31
+     Number of u missing data patterns          55
 
 
 COVARIANCE COVERAGE OF DATA
@@ -126,11 +127,18 @@ Minimum covariance coverage value   0.100
            Covariance Coverage
               MORALB1       CARESB1       KNOWB1        LEADB1        DISHONB1
               ________      ________      ________      ________      ________
- MORALB1        0.912
- CARESB1        0.884         0.954
- KNOWB1         0.896         0.938         0.974
- LEADB1         0.881         0.920         0.935         0.952
- DISHONB1       0.850         0.873         0.884         0.871         0.898
+ MORALB1        0.911
+ CARESB1        0.883         0.954
+ KNOWB1         0.896         0.938         0.973
+ LEADB1         0.881         0.919         0.935         0.952
+ DISHONB1       0.850         0.872         0.883         0.871         0.898
+ INTELB1        0.890         0.933         0.952         0.930         0.878
+
+
+           Covariance Coverage
+              INTELB1
+              ________
+ INTELB1        0.969
 
 
 UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
@@ -160,112 +168,117 @@ UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
       Category 2    0.182          288.000
       Category 3    0.412          653.000
       Category 4    0.362          574.000
+    INTELB1
+      Category 1    0.192          329.000
+      Category 2    0.565          967.000
+      Category 3    0.179          306.000
+      Category 4    0.064          110.000
 
 
 RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
 
 Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
 
-           -9914.800  342019           301
-           -9914.800  606576           151
-           -9914.800  21132            351
-           -9914.800  700349           401
-           -9914.800  36714            201
-           -9914.800  371246           101
-           -9914.800  85462            51
-           -9914.800  188640           451
-           -9914.800  642909           251
-           -9914.800  unperturbed      0
-           -9914.800  462953           7
-           -9914.800  27071            15
-           -9914.800  153942           31
-           -9914.800  7959             256
-           -9914.800  164305           128
-           -9914.800  871851           257
-           -9914.800  188498           258
-           -9914.800  311214           64
-           -9914.800  814975           129
-           -9914.800  622860           259
-           -9914.800  804660           260
-           -9914.800  509733           130
-           -9914.800  616917           261
-           -9914.800  520177           262
-           -9914.800  626891           32
-           -9914.800  565819           65
-           -9914.800  468036           131
-           -9914.800  349263           263
-           -9914.800  358488           264
-           -9914.800  313407           132
-           -9914.800  467339           66
-           -9914.800  321390           133
-           -9914.800  903369           134
-           -9914.800  76974            16
-           -9914.800  749453           33
-           -9914.800  789985           67
-           -9914.800  437181           135
-           -9914.800  232559           136
-           -9914.800  405079           68
-           -9914.800  341041           34
-           -9914.800  685657           69
-           -9914.800  987090           70
-           -9914.800  285380           1
-           -9914.800  359578           458
-           -9914.800  475420           71
-           -9914.800  783110           72
-           -9914.800  679832           302
-           -9914.800  93468            3
-           -9914.800  790452           303
-           -9914.800  92689            304
-           -9914.800  393232           152
-           -9914.800  81117            305
-           -9914.800  484687           306
-           -9914.800  46437            153
-           -9914.800  534864           307
-           -9914.800  692169           308
-           -9914.800  150531           154
-           -9914.800  879338           309
-           -9914.800  996231           310
-           -9914.800  12477            155
-           -9914.800  479273           156
-           -9914.800  972873           157
-           -9914.800  414284           158
-           -9914.800  383986           159
-           -9914.800  456213           160
-           -9914.800  23012            352
-           -9914.800  374219           353
-           -9914.800  193847           354
-           -9914.800  871722           355
-           -9914.800  360419           356
-           -9914.800  850545           357
-           -9914.800  195763           358
-           -9914.800  349562           359
-           -9914.800  563002           360
-           -9914.800  971853           402
-           -9914.800  471040           403
-           -9914.800  605565           404
-           -9914.800  973369           202
-           -9914.800  596257           405
-           -9914.800  926797           406
-           -9914.800  840078           203
-           -9914.800  772131           407
-           -9914.800  55115            408
-           -9914.800  748692           204
-           -9914.800  605161           409
-           -9914.800  746978           410
-           -9914.800  97158            205
-           -9914.800  891531           206
-           -9914.800  637095           207
-           -9914.800  57226            208
-           -9914.800  30098            209
-           -9914.800  835767           210
-           -9914.800  582296           452
-           -9914.800  879211           453
-           -9914.800  263049           454
-           -9914.800  224950           455
-           -9914.800  922596           456
-           -9914.800  769907           457
-           -9914.800  539751           459
-           -9914.800  112586           494
+          -11838.632  342019           301
+          -11838.632  606576           151
+          -11838.632  21132            351
+          -11838.632  700349           401
+          -11838.632  36714            201
+          -11838.632  371246           101
+          -11838.632  85462            51
+          -11838.632  188640           451
+          -11838.632  642909           251
+          -11838.632  unperturbed      0
+          -11838.632  462953           7
+          -11838.632  27071            15
+          -11838.632  153942           31
+          -11838.632  7959             256
+          -11838.632  164305           128
+          -11838.632  871851           257
+          -11838.632  188498           258
+          -11838.632  311214           64
+          -11838.632  814975           129
+          -11838.632  622860           259
+          -11838.632  804660           260
+          -11838.632  509733           130
+          -11838.632  616917           261
+          -11838.632  520177           262
+          -11838.632  626891           32
+          -11838.632  565819           65
+          -11838.632  468036           131
+          -11838.632  349263           263
+          -11838.632  358488           264
+          -11838.632  313407           132
+          -11838.632  467339           66
+          -11838.632  321390           133
+          -11838.632  903369           134
+          -11838.632  76974            16
+          -11838.632  749453           33
+          -11838.632  789985           67
+          -11838.632  437181           135
+          -11838.632  232559           136
+          -11838.632  405079           68
+          -11838.632  341041           34
+          -11838.632  685657           69
+          -11838.632  987090           70
+          -11838.632  285380           1
+          -11838.632  359578           458
+          -11838.632  475420           71
+          -11838.632  783110           72
+          -11838.632  679832           302
+          -11838.632  93468            3
+          -11838.632  790452           303
+          -11838.632  92689            304
+          -11838.632  393232           152
+          -11838.632  81117            305
+          -11838.632  484687           306
+          -11838.632  46437            153
+          -11838.632  534864           307
+          -11838.632  692169           308
+          -11838.632  150531           154
+          -11838.632  879338           309
+          -11838.632  996231           310
+          -11838.632  12477            155
+          -11838.632  479273           156
+          -11838.632  972873           157
+          -11838.632  414284           158
+          -11838.632  383986           159
+          -11838.632  456213           160
+          -11838.632  23012            352
+          -11838.632  374219           353
+          -11838.632  193847           354
+          -11838.632  871722           355
+          -11838.632  360419           356
+          -11838.632  850545           357
+          -11838.632  195763           358
+          -11838.632  349562           359
+          -11838.632  563002           360
+          -11838.632  971853           402
+          -11838.632  471040           403
+          -11838.632  605565           404
+          -11838.632  973369           202
+          -11838.632  596257           405
+          -11838.632  926797           406
+          -11838.632  840078           203
+          -11838.632  772131           407
+          -11838.632  55115            408
+          -11838.632  748692           204
+          -11838.632  605161           409
+          -11838.632  746978           410
+          -11838.632  97158            205
+          -11838.632  891531           206
+          -11838.632  637095           207
+          -11838.632  57226            208
+          -11838.632  30098            209
+          -11838.632  835767           210
+          -11838.632  582296           452
+          -11838.632  879211           453
+          -11838.632  263049           454
+          -11838.632  224950           455
+          -11838.632  922596           456
+          -11838.632  769907           457
+          -11838.632  539751           459
+          -11838.632  112586           494
 
 
 
@@ -275,19 +288,19 @@ THE MODEL ESTIMATION TERMINATED NORMALLY
 
 MODEL FIT INFORMATION
 
-Number of Free Parameters                       15
+Number of Free Parameters                       18
 
 Loglikelihood
 
-          H0 Value                       -9914.800
+          H0 Value                      -11838.632
           H0 Scaling Correction Factor      1.0000
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                   19859.600
-          Bayesian (BIC)                 19941.739
-          Sample-Size Adjusted BIC       19894.085
+          Akaike (AIC)                   23713.264
+          Bayesian (BIC)                 23811.841
+          Sample-Size Adjusted BIC       23754.656
             (n* = (n + 2) / 24)
 
 Chi-Square Test of Model Fit for the Binary and Ordered Categorical
@@ -295,31 +308,31 @@ Chi-Square Test of Model Fit for the Binary and Ordered Categorical
 
           Pearson Chi-Square
 
-          Value                           5224.474
-          Degrees of Freedom                  1005
+          Value                           8937.013
+          Degrees of Freedom                  4010
           P-Value                           0.0000
 
           Likelihood Ratio Chi-Square
 
-          Value                           2948.465
-          Degrees of Freedom                  1005
-          P-Value                           0.0000
+          Value                           3940.452
+          Degrees of Freedom                  4010
+          P-Value                           0.7817
 
-** Of the 3124 cells in the latent class indicator table, 3
+** Of the 15412 cells in the latent class indicator table, 67
    were deleted in the calculation of chi-square due to extreme values.
 
 Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
 
           Pearson Chi-Square
 
-          Value                           1597.140
-          Degrees of Freedom                  2070
+          Value                           3024.370
+          Degrees of Freedom                 11262
           P-Value                           1.0000
 
           Likelihood Ratio Chi-Square
 
-          Value                            724.910
-          Degrees of Freedom                  2070
+          Value                           1033.656
+          Degrees of Freedom                 11262
           P-Value                           1.0000
 
 
@@ -330,7 +343,7 @@ BASED ON THE ESTIMATED MODEL
     Latent
    Classes
 
-       1       1765.00000          1.00000
+       1       1766.00000          1.00000
 
 
 FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
@@ -339,7 +352,7 @@ BASED ON ESTIMATED POSTERIOR PROBABILITIES
     Latent
    Classes
 
-       1       1765.00000          1.00000
+       1       1766.00000          1.00000
 
 
 FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
@@ -350,7 +363,7 @@ Class Counts and Proportions
     Latent
    Classes
 
-       1             1765          1.00000
+       1             1766          1.00000
 
 
 Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
@@ -400,11 +413,14 @@ Latent Class 1
     DISHONB1$1        -3.075      0.122    -25.150      0.000
     DISHONB1$2        -1.232      0.060    -20.506      0.000
     DISHONB1$3         0.566      0.052     10.831      0.000
+    INTELB1$1         -1.436      0.061    -23.410      0.000
+    INTELB1$2          1.136      0.056     20.166      0.000
+    INTELB1$3          2.679      0.099     27.175      0.000
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.472E-01
+     Condition Number for the Information Matrix              0.364E-01
        (ratio of smallest to largest eigenvalue)
 
 
@@ -440,6 +456,11 @@ Latent Class 1
     Category 2         0.182      0.010     18.760      0.000
     Category 3         0.412      0.012     33.324      0.000
     Category 4         0.362      0.012     29.998      0.000
+ INTELB1
+    Category 1         0.192      0.010     20.181      0.000
+    Category 2         0.565      0.012     47.140      0.000
+    Category 3         0.179      0.009     19.303      0.000
+    Category 4         0.064      0.006     10.842      0.000
 
 
 MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
@@ -463,6 +484,9 @@ MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
      [ dishonb1$1*-3.07468 ];
      [ dishonb1$2*-1.23179 ];
      [ dishonb1$3*0.56607 ];
+     [ intelb1$1*-1.43595 ];
+     [ intelb1$2*1.13635 ];
+     [ intelb1$3*2.67853 ];
 
 
 
@@ -473,8 +497,8 @@ RESIDUAL OUTPUT
      CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
 
 
-     Beginning Time:  23:29:45
-        Ending Time:  23:29:49
+     Beginning Time:  12:44:43
+        Ending Time:  12:44:47
        Elapsed Time:  00:00:04
 
 

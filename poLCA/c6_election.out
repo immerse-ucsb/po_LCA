@@ -1,6 +1,6 @@
 Mplus VERSION 8.11
 MUTHEN & MUTHEN
-01/20/2025  11:30 PM
+04/04/2025  12:46 PM
 
 INPUT INSTRUCTIONS
 
@@ -10,10 +10,11 @@ INPUT INSTRUCTIONS
   FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/youtube_materials/po_LCA/poLCA/
   election.dat";
   VARIABLE:
-  NAMES = moralb caresb knowb leadb dishonb moralb1 caresb1 knowb1 leadb1 dishonb1;
+  NAMES = moralb caresb knowb leadb dishonb intelb moralb1 caresb1 knowb1 leadb1
+       dishonb1 intelb1;
    MISSING=.;
-   categorical = moralb1-dishonb1;
-  usevar = moralb1-dishonb1;
+   categorical = moralb1-intelb1;
+  usevar = moralb1-intelb1;
   classes = c(6);
   ANALYSIS:
   estimator = mlr;
@@ -32,7 +33,7 @@ INPUT INSTRUCTIONS
 *** WARNING
   Data set contains cases with missing on all variables.
   These cases were not included in the analysis.
-  Number of cases with missing on all variables:  20
+  Number of cases with missing on all variables:  19
    2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
@@ -43,9 +44,9 @@ INPUT INSTRUCTIONS
 SUMMARY OF ANALYSIS
 
 Number of groups                                                 1
-Number of observations                                        1765
+Number of observations                                        1766
 
-Number of dependent variables                                    5
+Number of dependent variables                                    6
 Number of independent variables                                  0
 Number of continuous latent variables                            0
 Number of categorical latent variables                           1
@@ -53,7 +54,7 @@ Number of categorical latent variables                           1
 Observed dependent variables
 
   Binary and ordered categorical (ordinal)
-   MORALB1     CARESB1     KNOWB1      LEADB1      DISHONB1
+   MORALB1     CARESB1     KNOWB1      LEADB1      DISHONB1    INTELB1
 
 Categorical latent variables
    C
@@ -104,9 +105,9 @@ Input data format  FREE
 
 SUMMARY OF DATA
 
-     Number of missing data patterns            31
+     Number of missing data patterns            55
      Number of y missing data patterns           0
-     Number of u missing data patterns          31
+     Number of u missing data patterns          55
 
 
 COVARIANCE COVERAGE OF DATA
@@ -120,11 +121,18 @@ Minimum covariance coverage value   0.100
            Covariance Coverage
               MORALB1       CARESB1       KNOWB1        LEADB1        DISHONB1
               ________      ________      ________      ________      ________
- MORALB1        0.912
- CARESB1        0.884         0.954
- KNOWB1         0.896         0.938         0.974
- LEADB1         0.881         0.920         0.935         0.952
- DISHONB1       0.850         0.873         0.884         0.871         0.898
+ MORALB1        0.911
+ CARESB1        0.883         0.954
+ KNOWB1         0.896         0.938         0.973
+ LEADB1         0.881         0.919         0.935         0.952
+ DISHONB1       0.850         0.872         0.883         0.871         0.898
+ INTELB1        0.890         0.933         0.952         0.930         0.878
+
+
+           Covariance Coverage
+              INTELB1
+              ________
+ INTELB1        0.969
 
 
 UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
@@ -154,27 +162,50 @@ UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
       Category 2    0.182          288.000
       Category 3    0.412          653.000
       Category 4    0.362          574.000
+    INTELB1
+      Category 1    0.192          329.000
+      Category 2    0.565          967.000
+      Category 3    0.179          306.000
+      Category 4    0.064          110.000
 
 
 RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
 
 Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
 
-           -8460.787  791396           243
-           -8460.787  782200           84
-           -8460.787  741888           138
-           -8460.787  667250           318
-           -8460.787  973369           202
-           -8460.859  485483           498
-           -8460.920  722748           346
-           -8460.920  783110           72
-           -8460.920  939021           8
-           -8460.920  937588           293
-           -8460.920  238906           430
-           -8460.920  526324           178
-           -8461.877  321390           133
+           -9809.626  85734            411
+           -9809.626  784664           75
+           -9809.626  789985           67
+           -9809.626  464179           106
+           -9809.626  354624           448
+           -9809.626  622860           259
+           -9809.626  512836           289
+           -9809.626  350608           334
+           -9809.626  723775           97
+           -9809.626  392766           331
+           -9809.626  354208           196
+           -9809.626  217130           443
+           -9809.626  596257           405
+           -9809.626  202790           198
+           -9809.626  754100           56
+           -9809.626  654136           167
+           -9809.626  860772           174
+           -9809.626  220454           288
+           -9809.626  642909           251
+           -9809.626  587946           120
+           -9809.626  887580           493
+           -9809.626  36714            201
+           -9809.679  635245           121
+           -9809.784  544048           87
+           -9809.790  526324           178
+           -9817.894  364676           27
+           -9817.894  100874           108
+           -9817.894  178475           231
+           -9817.894  576220           115
+           -9818.264  507154           387
+           -9819.652  835767           210
 
-87 perturbed starting value run(s) did not converge or were rejected in the third stage.
+69 perturbed starting value run(s) did not converge or were rejected in the third stage.
 
 
 
@@ -195,19 +226,19 @@ THE MODEL ESTIMATION TERMINATED NORMALLY
 
 MODEL FIT INFORMATION
 
-Number of Free Parameters                       95
+Number of Free Parameters                      113
 
 Loglikelihood
 
-          H0 Value                       -8460.787
-          H0 Scaling Correction Factor      1.1452
+          H0 Value                       -9809.626
+          H0 Scaling Correction Factor      1.2086
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                   17111.574
-          Bayesian (BIC)                 17631.785
-          Sample-Size Adjusted BIC       17329.978
+          Akaike (AIC)                   19845.252
+          Bayesian (BIC)                 20464.093
+          Sample-Size Adjusted BIC       20105.101
             (n* = (n + 2) / 24)
 
 Chi-Square Test of Model Fit for the Binary and Ordered Categorical
@@ -215,31 +246,31 @@ Chi-Square Test of Model Fit for the Binary and Ordered Categorical
 
           Pearson Chi-Square
 
-          Value                           1356.468
-          Degrees of Freedom                   925
-          P-Value                           0.0000
+          Value                           3344.510
+          Degrees of Freedom                  3950
+          P-Value                           1.0000
 
           Likelihood Ratio Chi-Square
 
-          Value                            662.228
-          Degrees of Freedom                   925
+          Value                           1468.743
+          Degrees of Freedom                  3950
           P-Value                           1.0000
 
-** Of the 3124 cells in the latent class indicator table, 3
+** Of the 15412 cells in the latent class indicator table, 32
    were deleted in the calculation of chi-square due to extreme values.
 
 Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
 
           Pearson Chi-Square
 
-          Value                           1508.874
-          Degrees of Freedom                  2070
+          Value                           2615.700
+          Degrees of Freedom                 11262
           P-Value                           1.0000
 
           Likelihood Ratio Chi-Square
 
-          Value                            721.580
-          Degrees of Freedom                  2070
+          Value                           1041.465
+          Degrees of Freedom                 11262
           P-Value                           1.0000
 
 
@@ -250,12 +281,12 @@ BASED ON THE ESTIMATED MODEL
     Latent
    Classes
 
-       1        153.26617          0.08684
-       2        393.10545          0.22272
-       3        198.44556          0.11243
-       4        518.40393          0.29371
-       5        371.11214          0.21026
-       6        130.66674          0.07403
+       1        374.89917          0.21229
+       2        423.75884          0.23995
+       3        147.71154          0.08364
+       4        172.60975          0.09774
+       5        425.91151          0.24117
+       6        221.10919          0.12520
 
 
 FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
@@ -264,12 +295,12 @@ BASED ON ESTIMATED POSTERIOR PROBABILITIES
     Latent
    Classes
 
-       1        153.26617          0.08684
-       2        393.10545          0.22272
-       3        198.44556          0.11243
-       4        518.40393          0.29371
-       5        371.11214          0.21026
-       6        130.66674          0.07403
+       1        374.89917          0.21229
+       2        423.75884          0.23995
+       3        147.71154          0.08364
+       4        172.60975          0.09774
+       5        425.91151          0.24117
+       6        221.10919          0.12520
 
 
 FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
@@ -280,17 +311,17 @@ Class Counts and Proportions
     Latent
    Classes
 
-       1              150          0.08499
-       2              402          0.22776
-       3              191          0.10822
-       4              598          0.33881
-       5              308          0.17450
-       6              116          0.06572
+       1              388          0.21971
+       2              493          0.27916
+       3              137          0.07758
+       4              149          0.08437
+       5              372          0.21065
+       6              227          0.12854
 
 
 CLASSIFICATION QUALITY
 
-     Entropy                         0.697
+     Entropy                         0.749
 
 
 Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
@@ -298,12 +329,12 @@ by Latent Class (Column)
 
            1        2        3        4        5        6
 
-    1   0.876    0.105    0.000    0.007    0.000    0.011
-    2   0.041    0.794    0.001    0.021    0.091    0.052
-    3   0.001    0.000    0.867    0.121    0.004    0.007
-    4   0.002    0.017    0.050    0.738    0.181    0.012
-    5   0.001    0.114    0.006    0.121    0.703    0.054
-    6   0.032    0.108    0.006    0.060    0.076    0.717
+    1   0.859    0.035    0.042    0.038    0.025    0.000
+    2   0.038    0.728    0.001    0.066    0.160    0.008
+    3   0.065    0.002    0.916    0.017    0.001    0.000
+    4   0.060    0.108    0.036    0.763    0.020    0.014
+    5   0.014    0.088    0.000    0.013    0.838    0.047
+    6   0.000    0.009    0.000    0.021    0.099    0.871
 
 
 Classification Probabilities for the Most Likely Latent Class Membership (Column)
@@ -311,12 +342,12 @@ by Latent Class (Row)
 
            1        2        3        4        5        6
 
-    1   0.857    0.109    0.001    0.006    0.002    0.025
-    2   0.040    0.812    0.000    0.026    0.089    0.032
-    3   0.000    0.002    0.834    0.151    0.009    0.004
-    4   0.002    0.017    0.045    0.852    0.072    0.013
-    5   0.000    0.098    0.002    0.292    0.584    0.024
-    6   0.013    0.159    0.010    0.054    0.128    0.636
+    1   0.889    0.050    0.024    0.024    0.014    0.000
+    2   0.032    0.847    0.001    0.038    0.078    0.005
+    3   0.112    0.003    0.849    0.036    0.001    0.000
+    4   0.086    0.187    0.014    0.658    0.027    0.028
+    5   0.023    0.185    0.000    0.007    0.732    0.053
+    6   0.000    0.018    0.000    0.009    0.078    0.894
 
 
 Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
@@ -324,12 +355,12 @@ by Latent Class (Row)
 
               1        2        3        4        5        6
 
-    1      3.555    1.489   -3.282   -1.345   -2.328    0.000
-    2      0.230    3.235   -8.498   -0.200    1.029    0.000
-    3     -8.227   -0.807    5.408    3.699    0.879    0.000
-    4     -1.906    0.214    1.205    4.153    1.681    0.000
-    5     -4.866    1.419   -2.417    2.507    3.201    0.000
-    6     -3.891   -1.390   -4.137   -2.472   -1.604    0.000
+    1     13.698   10.811   10.069   10.085    9.537    0.000
+    2      1.905    5.177   -2.046    2.073    2.786    0.000
+    3      5.894    2.144    7.923    4.759    0.509    0.000
+    4      1.125    1.907   -0.706    3.164   -0.029    0.000
+    5     -0.826    1.260   -5.437   -2.025    2.635    0.000
+    6     -8.590   -3.912  -13.704   -4.588   -2.433    0.000
 
 
 MODEL RESULTS
@@ -340,130 +371,148 @@ MODEL RESULTS
 Latent Class 1
 
  Thresholds
-    MORALB1$1         -2.103      0.332     -6.335      0.000
-    MORALB1$2         -1.148      0.261     -4.390      0.000
-    MORALB1$3          0.061      0.248      0.245      0.807
-    CARESB1$1         -3.913      0.836     -4.681      0.000
-    CARESB1$2         -3.913      0.836     -4.681      0.000
-    CARESB1$3         -1.872      0.347     -5.395      0.000
-    KNOWB1$1          -2.335      0.367     -6.359      0.000
-    KNOWB1$2          -1.233      0.277     -4.456      0.000
-    KNOWB1$3          -0.371      0.251     -1.480      0.139
-    LEADB1$1         -15.000      0.000    999.000    999.000
-    LEADB1$2         -15.000      0.000    999.000    999.000
-    LEADB1$3          -1.284      0.329     -3.899      0.000
-    DISHONB1$1        -0.966      0.250     -3.867      0.000
-    DISHONB1$2         0.509      0.250      2.034      0.042
-    DISHONB1$3         1.252      0.247      5.060      0.000
+    MORALB1$1         -2.943      0.489     -6.024      0.000
+    MORALB1$2          0.049      0.177      0.278      0.781
+    MORALB1$3          3.344      0.422      7.924      0.000
+    CARESB1$1         -5.062      1.009     -5.019      0.000
+    CARESB1$2         -1.542      0.237     -6.496      0.000
+    CARESB1$3          0.985      0.220      4.480      0.000
+    KNOWB1$1         -15.000      0.000    999.000    999.000
+    KNOWB1$2          -1.654      0.318     -5.202      0.000
+    KNOWB1$3           2.503      0.414      6.042      0.000
+    LEADB1$1          -4.790      0.733     -6.532      0.000
+    LEADB1$2          -1.037      0.212     -4.894      0.000
+    LEADB1$3           2.452      0.379      6.472      0.000
+    DISHONB1$1        -4.581      0.798     -5.742      0.000
+    DISHONB1$2        -1.040      0.161     -6.470      0.000
+    DISHONB1$3         1.586      0.259      6.115      0.000
+    INTELB1$1        -15.000      0.000    999.000    999.000
+    INTELB1$2         -0.976      0.289     -3.379      0.001
+    INTELB1$3          2.413      0.345      6.993      0.000
 
 Latent Class 2
 
  Thresholds
-    MORALB1$1         -2.941      0.396     -7.421      0.000
-    MORALB1$2         -0.026      0.196     -0.131      0.896
-    MORALB1$3          3.468      0.471      7.359      0.000
-    CARESB1$1         -5.224      0.994     -5.257      0.000
-    CARESB1$2         -1.936      0.233     -8.300      0.000
-    CARESB1$3          0.790      0.223      3.543      0.000
-    KNOWB1$1         -15.000      0.000    999.000    999.000
-    KNOWB1$2          -0.986      0.373     -2.644      0.008
-    KNOWB1$3           2.124      0.293      7.242      0.000
-    LEADB1$1         -15.000      0.000    999.000    999.000
-    LEADB1$2          -1.779      0.392     -4.536      0.000
-    LEADB1$3           2.022      0.327      6.175      0.000
-    DISHONB1$1        -4.438      1.039     -4.270      0.000
-    DISHONB1$2        -1.015      0.183     -5.549      0.000
-    DISHONB1$3         1.574      0.186      8.452      0.000
+    MORALB1$1        -15.000      0.000    999.000    999.000
+    MORALB1$2          1.400      0.713      1.962      0.050
+    MORALB1$3         15.000      0.000    999.000    999.000
+    CARESB1$1        -15.000      0.000    999.000    999.000
+    CARESB1$2         -0.674      1.224     -0.551      0.582
+    CARESB1$3          2.303      1.467      1.570      0.116
+    KNOWB1$1          -3.126      1.151     -2.716      0.007
+    KNOWB1$2           2.905      1.429      2.033      0.042
+    KNOWB1$3           4.535      0.699      6.488      0.000
+    LEADB1$1          -3.150      0.426     -7.387      0.000
+    LEADB1$2           1.287      0.540      2.385      0.017
+    LEADB1$3           4.631      1.683      2.752      0.006
+    DISHONB1$1        -8.973     76.602     -0.117      0.907
+    DISHONB1$2        -1.440      0.533     -2.702      0.007
+    DISHONB1$3         1.792      0.526      3.408      0.001
+    INTELB1$1         -2.429      0.655     -3.707      0.000
+    INTELB1$2          4.926      7.185      0.686      0.493
+    INTELB1$3         15.000      0.000    999.000    999.000
 
 Latent Class 3
 
  Thresholds
-    MORALB1$1          1.553      0.717      2.166      0.030
-    MORALB1$2          3.615      0.815      4.435      0.000
-    MORALB1$3          5.244      1.087      4.824      0.000
-    CARESB1$1          0.402      0.546      0.736      0.462
-    CARESB1$2          2.600      0.619      4.197      0.000
-    CARESB1$3         15.000      0.000    999.000    999.000
-    KNOWB1$1           0.949      0.828      1.146      0.252
-    KNOWB1$2           4.934      4.288      1.151      0.250
-    KNOWB1$3          15.000      0.000    999.000    999.000
-    LEADB1$1           1.594      0.753      2.118      0.034
-    LEADB1$2           4.040      1.426      2.834      0.005
-    LEADB1$3          15.000      0.000    999.000    999.000
-    DISHONB1$1        -3.432      0.588     -5.839      0.000
-    DISHONB1$2        -2.983      1.003     -2.975      0.003
-    DISHONB1$3        -1.356      0.406     -3.339      0.001
+    MORALB1$1         -2.275      0.373     -6.102      0.000
+    MORALB1$2         -1.320      0.261     -5.066      0.000
+    MORALB1$3          0.154      0.275      0.560      0.575
+    CARESB1$1         -4.709      1.010     -4.663      0.000
+    CARESB1$2         -3.228      0.572     -5.646      0.000
+    CARESB1$3         -1.489      0.305     -4.886      0.000
+    KNOWB1$1          -2.979      0.602     -4.952      0.000
+    KNOWB1$2          -2.202      0.477     -4.619      0.000
+    KNOWB1$3          -0.888      0.309     -2.872      0.004
+    LEADB1$1         -15.000      0.000    999.000    999.000
+    LEADB1$2          -4.004      1.249     -3.207      0.001
+    LEADB1$3          -1.019      0.313     -3.258      0.001
+    DISHONB1$1        -1.105      0.286     -3.859      0.000
+    DISHONB1$2         0.543      0.275      1.973      0.048
+    DISHONB1$3         1.328      0.257      5.175      0.000
+    INTELB1$1         -2.822      0.471     -5.996      0.000
+    INTELB1$2         -1.672      0.307     -5.456      0.000
+    INTELB1$3         -0.270      0.247     -1.092      0.275
 
 Latent Class 4
 
  Thresholds
-    MORALB1$1         -0.972      0.689     -1.412      0.158
-    MORALB1$2          3.899      0.988      3.945      0.000
-    MORALB1$3         15.000      0.000    999.000    999.000
-    CARESB1$1         -2.635      1.065     -2.474      0.013
-    CARESB1$2          1.813      0.540      3.359      0.001
-    CARESB1$3          3.260      0.591      5.519      0.000
-    KNOWB1$1          -1.753      0.471     -3.722      0.000
-    KNOWB1$2           2.223      0.317      7.016      0.000
-    KNOWB1$3           5.422      1.484      3.653      0.000
-    LEADB1$1          -1.842      0.986     -1.868      0.062
-    LEADB1$2           3.040      0.398      7.647      0.000
-    LEADB1$3           4.032      0.483      8.343      0.000
-    DISHONB1$1        -5.051      0.802     -6.296      0.000
-    DISHONB1$2        -2.109      0.251     -8.417      0.000
-    DISHONB1$3        -0.427      0.502     -0.852      0.394
+    MORALB1$1         -1.395      0.715     -1.952      0.051
+    MORALB1$2         -0.094      0.422     -0.222      0.824
+    MORALB1$3          1.604      0.585      2.744      0.006
+    CARESB1$1         -3.338      0.861     -3.876      0.000
+    CARESB1$2         -3.189      1.039     -3.069      0.002
+    CARESB1$3         -0.176      0.404     -0.436      0.663
+    KNOWB1$1          -1.449      0.663     -2.186      0.029
+    KNOWB1$2           1.744      0.568      3.071      0.002
+    KNOWB1$3          15.000      0.000    999.000    999.000
+    LEADB1$1          -2.237      0.621     -3.601      0.000
+    LEADB1$2           0.308      0.319      0.965      0.335
+    LEADB1$3           1.636      0.529      3.093      0.002
+    DISHONB1$1        -1.453      0.595     -2.442      0.015
+    DISHONB1$2         0.023      0.332      0.068      0.946
+    DISHONB1$3         1.197      0.461      2.594      0.009
+    INTELB1$1         -0.820      0.463     -1.773      0.076
+    INTELB1$2          2.258      0.807      2.796      0.005
+    INTELB1$3          4.925      2.146      2.295      0.022
 
 Latent Class 5
 
  Thresholds
-    MORALB1$1        -15.000      0.000    999.000    999.000
-    MORALB1$2          1.543      0.569      2.711      0.007
+    MORALB1$1         -0.758      0.961     -0.789      0.430
+    MORALB1$2          4.738      3.547      1.336      0.182
     MORALB1$3         15.000      0.000    999.000    999.000
-    CARESB1$1        -15.000      0.000    999.000    999.000
-    CARESB1$2         -0.585      0.892     -0.656      0.512
-    CARESB1$3          3.409      1.364      2.499      0.012
-    KNOWB1$1          -2.521      0.448     -5.626      0.000
-    KNOWB1$2           2.019      0.403      5.017      0.000
-    KNOWB1$3           5.095      2.124      2.399      0.016
-    LEADB1$1          -2.719      0.526     -5.174      0.000
-    LEADB1$2           1.505      0.855      1.761      0.078
-    LEADB1$3          15.000      0.000    999.000    999.000
-    DISHONB1$1       -15.000      0.000    999.000    999.000
-    DISHONB1$2        -1.766      0.435     -4.063      0.000
-    DISHONB1$3         2.057      0.884      2.326      0.020
+    CARESB1$1         -2.236      1.144     -1.955      0.051
+    CARESB1$2          2.758      0.981      2.811      0.005
+    CARESB1$3          6.080     10.656      0.571      0.568
+    KNOWB1$1          -2.323      0.769     -3.020      0.003
+    KNOWB1$2           2.475      0.697      3.551      0.000
+    KNOWB1$3          15.000      0.000    999.000    999.000
+    LEADB1$1          -1.537      0.901     -1.706      0.088
+    LEADB1$2           3.324      0.570      5.831      0.000
+    LEADB1$3           4.484      0.834      5.380      0.000
+    DISHONB1$1        -5.364      1.282     -4.184      0.000
+    DISHONB1$2        -2.397      0.326     -7.350      0.000
+    DISHONB1$3        -0.570      0.889     -0.642      0.521
+    INTELB1$1         -1.902      0.697     -2.729      0.006
+    INTELB1$2          3.042      0.885      3.437      0.001
+    INTELB1$3         15.000      0.000    999.000    999.000
 
 Latent Class 6
 
  Thresholds
-    MORALB1$1         -1.862      0.803     -2.318      0.020
-    MORALB1$2         -0.780      0.612     -1.273      0.203
-    MORALB1$3          1.494      0.466      3.208      0.001
-    CARESB1$1         -4.084      2.322     -1.759      0.079
-    CARESB1$2         -4.084      2.322     -1.759      0.079
-    CARESB1$3         -0.117      0.543     -0.215      0.830
-    KNOWB1$1          -1.865      0.646     -2.888      0.004
-    KNOWB1$2           1.293      0.411      3.147      0.002
+    MORALB1$1          0.941      0.306      3.079      0.002
+    MORALB1$2          3.436      0.678      5.064      0.000
+    MORALB1$3          5.350      1.049      5.099      0.000
+    CARESB1$1          0.003      0.263      0.013      0.990
+    CARESB1$2          2.107      0.511      4.123      0.000
+    CARESB1$3         15.000      0.000    999.000    999.000
+    KNOWB1$1           1.549      1.184      1.308      0.191
+    KNOWB1$2           6.960      9.051      0.769      0.442
     KNOWB1$3          15.000      0.000    999.000    999.000
-    LEADB1$1          -1.974      0.438     -4.507      0.000
-    LEADB1$2           1.602      1.010      1.586      0.113
+    LEADB1$1           0.990      0.354      2.793      0.005
+    LEADB1$2           3.738      0.674      5.546      0.000
     LEADB1$3          15.000      0.000    999.000    999.000
-    DISHONB1$1        -1.398      0.410     -3.410      0.001
-    DISHONB1$2         0.826      0.479      1.723      0.085
-    DISHONB1$3         2.389      0.997      2.397      0.017
+    DISHONB1$1        -3.439      0.548     -6.275      0.000
+    DISHONB1$2        -2.604      0.394     -6.618      0.000
+    DISHONB1$3        -0.948      0.313     -3.026      0.002
+    INTELB1$1          1.602      1.001      1.600      0.110
+    INTELB1$2         15.000      0.000    999.000    999.000
+    INTELB1$3         15.000      0.000    999.000    999.000
 
 Categorical Latent Variables
 
  Means
-    C#1                0.160      0.406      0.393      0.694
-    C#2                1.101      0.394      2.796      0.005
-    C#3                0.418      0.661      0.632      0.528
-    C#4                1.378      0.449      3.072      0.002
-    C#5                1.044      0.408      2.556      0.011
+    C#1                0.528      0.269      1.962      0.050
+    C#2                0.651      0.666      0.977      0.328
+    C#3               -0.403      0.330     -1.222      0.222
+    C#4               -0.248      0.606     -0.409      0.683
+    C#5                0.656      0.250      2.620      0.009
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.462E-03
+     Condition Number for the Information Matrix              0.882E-06
        (ratio of smallest to largest eigenvalue)
 
 
@@ -475,170 +524,200 @@ RESULTS IN PROBABILITY SCALE
 Latent Class 1
 
  MORALB1
-    Category 1         0.109      0.032      3.380      0.001
-    Category 2         0.132      0.040      3.282      0.001
-    Category 3         0.274      0.054      5.047      0.000
-    Category 4         0.485      0.062      7.812      0.000
+    Category 1         0.050      0.023      2.155      0.031
+    Category 2         0.462      0.042     10.905      0.000
+    Category 3         0.454      0.040     11.223      0.000
+    Category 4         0.034      0.014      2.453      0.014
  CARESB1
-    Category 1         0.020      0.016      1.220      0.222
-    Category 2         0.000      0.000      1.245      0.213
-    Category 3         0.114      0.035      3.226      0.001
-    Category 4         0.867      0.040     21.618      0.000
+    Category 1         0.006      0.006      0.998      0.318
+    Category 2         0.170      0.033      5.161      0.000
+    Category 3         0.552      0.039     14.315      0.000
+    Category 4         0.272      0.044      6.245      0.000
  KNOWB1
-    Category 1         0.088      0.030      2.988      0.003
-    Category 2         0.137      0.043      3.164      0.002
-    Category 3         0.183      0.047      3.910      0.000
-    Category 4         0.592      0.061      9.767      0.000
- LEADB1
     Category 1         0.000      0.000      0.000      1.000
-    Category 2         0.000      0.000      0.000      1.000
-    Category 3         0.217      0.056      3.877      0.000
-    Category 4         0.783      0.056     14.001      0.000
+    Category 2         0.161      0.043      3.746      0.000
+    Category 3         0.764      0.039     19.343      0.000
+    Category 4         0.076      0.029      2.612      0.009
+ LEADB1
+    Category 1         0.008      0.006      1.375      0.169
+    Category 2         0.254      0.040      6.326      0.000
+    Category 3         0.659      0.036     18.153      0.000
+    Category 4         0.079      0.028      2.867      0.004
  DISHONB1
-    Category 1         0.276      0.050      5.529      0.000
-    Category 2         0.349      0.049      7.087      0.000
-    Category 3         0.153      0.056      2.731      0.006
-    Category 4         0.222      0.043      5.196      0.000
+    Category 1         0.010      0.008      1.266      0.205
+    Category 2         0.251      0.030      8.306      0.000
+    Category 3         0.569      0.037     15.249      0.000
+    Category 4         0.170      0.037      4.644      0.000
+ INTELB1
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.274      0.057      4.766      0.000
+    Category 3         0.644      0.047     13.846      0.000
+    Category 4         0.082      0.026      3.158      0.002
 
 Latent Class 2
 
  MORALB1
-    Category 1         0.050      0.019      2.656      0.008
-    Category 2         0.443      0.048      9.169      0.000
-    Category 3         0.476      0.045     10.583      0.000
-    Category 4         0.030      0.014      2.188      0.029
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.802      0.113      7.085      0.000
+    Category 3         0.198      0.113      1.748      0.081
+    Category 4         0.000      0.000      0.000      1.000
  CARESB1
-    Category 1         0.005      0.005      1.012      0.312
-    Category 2         0.121      0.026      4.652      0.000
-    Category 3         0.562      0.047     11.913      0.000
-    Category 4         0.312      0.048      6.519      0.000
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.338      0.274      1.234      0.217
+    Category 3         0.572      0.167      3.422      0.001
+    Category 4         0.091      0.121      0.750      0.453
  KNOWB1
-    Category 1         0.000      0.000      0.000      1.000
-    Category 2         0.272      0.074      3.682      0.000
-    Category 3         0.622      0.061     10.191      0.000
-    Category 4         0.107      0.028      3.817      0.000
+    Category 1         0.042      0.046      0.907      0.364
+    Category 2         0.906      0.080     11.330      0.000
+    Category 3         0.041      0.073      0.562      0.574
+    Category 4         0.011      0.007      1.446      0.148
  LEADB1
-    Category 1         0.000      0.000      0.000      1.000
-    Category 2         0.144      0.048      2.980      0.003
-    Category 3         0.739      0.046     15.982      0.000
-    Category 4         0.117      0.034      3.458      0.001
+    Category 1         0.041      0.017      2.446      0.014
+    Category 2         0.743      0.085      8.709      0.000
+    Category 3         0.207      0.087      2.383      0.017
+    Category 4         0.010      0.016      0.600      0.548
  DISHONB1
-    Category 1         0.012      0.012      0.974      0.330
-    Category 2         0.254      0.033      7.701      0.000
-    Category 3         0.562      0.039     14.415      0.000
-    Category 4         0.172      0.026      6.483      0.000
+    Category 1         0.000      0.010      0.013      0.990
+    Category 2         0.191      0.084      2.290      0.022
+    Category 3         0.666      0.062     10.666      0.000
+    Category 4         0.143      0.064      2.219      0.026
+ INTELB1
+    Category 1         0.081      0.049      1.660      0.097
+    Category 2         0.912      0.054     16.883      0.000
+    Category 3         0.007      0.051      0.140      0.889
+    Category 4         0.000      0.000      0.000      1.000
 
 Latent Class 3
 
  MORALB1
-    Category 1         0.825      0.103      7.984      0.000
-    Category 2         0.148      0.108      1.380      0.167
-    Category 3         0.021      0.020      1.061      0.289
-    Category 4         0.005      0.006      0.925      0.355
+    Category 1         0.093      0.032      2.957      0.003
+    Category 2         0.118      0.039      2.991      0.003
+    Category 3         0.328      0.062      5.272      0.000
+    Category 4         0.462      0.068      6.764      0.000
  CARESB1
-    Category 1         0.599      0.131      4.566      0.000
-    Category 2         0.332      0.123      2.704      0.007
-    Category 3         0.069      0.040      1.735      0.083
-    Category 4         0.000      0.000      0.000      1.000
+    Category 1         0.009      0.009      0.999      0.318
+    Category 2         0.029      0.019      1.515      0.130
+    Category 3         0.146      0.040      3.670      0.000
+    Category 4         0.816      0.046     17.827      0.000
  KNOWB1
-    Category 1         0.721      0.167      4.326      0.000
-    Category 2         0.272      0.143      1.901      0.057
-    Category 3         0.007      0.030      0.235      0.814
-    Category 4         0.000      0.000      0.000      1.000
+    Category 1         0.048      0.028      1.747      0.081
+    Category 2         0.051      0.035      1.468      0.142
+    Category 3         0.192      0.056      3.443      0.001
+    Category 4         0.709      0.064     11.093      0.000
  LEADB1
-    Category 1         0.831      0.106      7.872      0.000
-    Category 2         0.151      0.093      1.637      0.102
-    Category 3         0.017      0.024      0.714      0.475
-    Category 4         0.000      0.000      0.000      1.000
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.018      0.022      0.815      0.415
+    Category 3         0.247      0.054      4.566      0.000
+    Category 4         0.735      0.061     12.056      0.000
  DISHONB1
-    Category 1         0.031      0.018      1.756      0.079
-    Category 2         0.017      0.051      0.330      0.742
-    Category 3         0.157      0.038      4.159      0.000
-    Category 4         0.795      0.066     12.017      0.000
+    Category 1         0.249      0.054      4.651      0.000
+    Category 2         0.384      0.050      7.696      0.000
+    Category 3         0.158      0.065      2.437      0.015
+    Category 4         0.209      0.042      4.929      0.000
+ INTELB1
+    Category 1         0.056      0.025      2.251      0.024
+    Category 2         0.102      0.033      3.071      0.002
+    Category 3         0.275      0.059      4.689      0.000
+    Category 4         0.567      0.061      9.337      0.000
 
 Latent Class 4
 
  MORALB1
-    Category 1         0.274      0.137      2.002      0.045
-    Category 2         0.706      0.124      5.677      0.000
-    Category 3         0.020      0.019      1.032      0.302
-    Category 4         0.000      0.000      0.000      1.000
+    Category 1         0.199      0.114      1.746      0.081
+    Category 2         0.278      0.129      2.157      0.031
+    Category 3         0.356      0.115      3.092      0.002
+    Category 4         0.167      0.081      2.054      0.040
  CARESB1
-    Category 1         0.067      0.066      1.006      0.314
-    Category 2         0.793      0.046     17.284      0.000
-    Category 3         0.103      0.053      1.948      0.051
-    Category 4         0.037      0.021      1.758      0.079
+    Category 1         0.034      0.029      1.203      0.229
+    Category 2         0.005      0.035      0.149      0.881
+    Category 3         0.417      0.107      3.905      0.000
+    Category 4         0.544      0.100      5.424      0.000
  KNOWB1
-    Category 1         0.148      0.059      2.492      0.013
-    Category 2         0.755      0.046     16.549      0.000
-    Category 3         0.093      0.025      3.692      0.000
-    Category 4         0.004      0.007      0.677      0.499
+    Category 1         0.190      0.102      1.863      0.062
+    Category 2         0.661      0.144      4.596      0.000
+    Category 3         0.149      0.072      2.069      0.039
+    Category 4         0.000      0.000      0.000      1.000
  LEADB1
-    Category 1         0.137      0.116      1.174      0.240
-    Category 2         0.818      0.117      7.018      0.000
-    Category 3         0.028      0.015      1.825      0.068
-    Category 4         0.017      0.008      2.106      0.035
+    Category 1         0.097      0.054      1.782      0.075
+    Category 2         0.480      0.080      6.000      0.000
+    Category 3         0.261      0.069      3.795      0.000
+    Category 4         0.163      0.072      2.259      0.024
  DISHONB1
-    Category 1         0.006      0.005      1.255      0.210
-    Category 2         0.102      0.023      4.362      0.000
-    Category 3         0.287      0.124      2.307      0.021
-    Category 4         0.605      0.120      5.050      0.000
+    Category 1         0.190      0.091      2.073      0.038
+    Category 2         0.316      0.092      3.429      0.001
+    Category 3         0.262      0.082      3.216      0.001
+    Category 4         0.232      0.082      2.822      0.005
+ INTELB1
+    Category 1         0.306      0.098      3.113      0.002
+    Category 2         0.600      0.123      4.866      0.000
+    Category 3         0.087      0.064      1.377      0.169
+    Category 4         0.007      0.015      0.469      0.639
 
 Latent Class 5
 
  MORALB1
-    Category 1         0.000      0.000      0.000      1.000
-    Category 2         0.824      0.083      9.977      0.000
-    Category 3         0.176      0.083      2.133      0.033
+    Category 1         0.319      0.209      1.528      0.126
+    Category 2         0.672      0.185      3.639      0.000
+    Category 3         0.009      0.031      0.284      0.776
     Category 4         0.000      0.000      0.000      1.000
  CARESB1
-    Category 1         0.000      0.000      0.000      1.000
-    Category 2         0.358      0.205      1.746      0.081
-    Category 3         0.610      0.210      2.907      0.004
-    Category 4         0.032      0.042      0.757      0.449
+    Category 1         0.097      0.100      0.968      0.333
+    Category 2         0.844      0.075     11.180      0.000
+    Category 3         0.057      0.060      0.951      0.342
+    Category 4         0.002      0.024      0.094      0.925
  KNOWB1
-    Category 1         0.074      0.031      2.411      0.016
-    Category 2         0.808      0.043     18.924      0.000
-    Category 3         0.111      0.039      2.847      0.004
-    Category 4         0.006      0.013      0.474      0.636
- LEADB1
-    Category 1         0.062      0.030      2.028      0.043
-    Category 2         0.757      0.136      5.560      0.000
-    Category 3         0.182      0.127      1.430      0.153
+    Category 1         0.089      0.063      1.427      0.153
+    Category 2         0.833      0.045     18.355      0.000
+    Category 3         0.078      0.050      1.556      0.120
     Category 4         0.000      0.000      0.000      1.000
+ LEADB1
+    Category 1         0.177      0.131      1.349      0.177
+    Category 2         0.788      0.120      6.580      0.000
+    Category 3         0.024      0.014      1.634      0.102
+    Category 4         0.011      0.009      1.213      0.225
  DISHONB1
-    Category 1         0.000      0.000      0.000      1.000
-    Category 2         0.146      0.054      2.693      0.007
-    Category 3         0.741      0.080      9.269      0.000
-    Category 4         0.113      0.089      1.275      0.202
+    Category 1         0.005      0.006      0.784      0.433
+    Category 2         0.079      0.023      3.449      0.001
+    Category 3         0.278      0.195      1.427      0.153
+    Category 4         0.639      0.205      3.115      0.002
+ INTELB1
+    Category 1         0.130      0.079      1.649      0.099
+    Category 2         0.825      0.055     15.044      0.000
+    Category 3         0.046      0.038      1.184      0.236
+    Category 4         0.000      0.000      0.000      1.000
 
 Latent Class 6
 
  MORALB1
-    Category 1         0.134      0.093      1.438      0.150
-    Category 2         0.180      0.116      1.551      0.121
-    Category 3         0.502      0.100      5.041      0.000
-    Category 4         0.183      0.070      2.628      0.009
+    Category 1         0.719      0.062     11.658      0.000
+    Category 2         0.250      0.058      4.292      0.000
+    Category 3         0.026      0.019      1.377      0.169
+    Category 4         0.005      0.005      0.958      0.338
  CARESB1
-    Category 1         0.017      0.038      0.438      0.661
-    Category 2         0.000      0.000      0.000      1.000
-    Category 3         0.454      0.120      3.795      0.000
-    Category 4         0.529      0.135      3.912      0.000
+    Category 1         0.501      0.066      7.629      0.000
+    Category 2         0.391      0.069      5.680      0.000
+    Category 3         0.108      0.049      2.194      0.028
+    Category 4         0.000      0.000      0.000      1.000
  KNOWB1
-    Category 1         0.134      0.075      1.789      0.074
-    Category 2         0.651      0.099      6.563      0.000
-    Category 3         0.215      0.069      3.103      0.002
+    Category 1         0.825      0.171      4.820      0.000
+    Category 2         0.174      0.166      1.050      0.294
+    Category 3         0.001      0.009      0.111      0.912
     Category 4         0.000      0.000      0.000      1.000
  LEADB1
-    Category 1         0.122      0.047      2.601      0.009
-    Category 2         0.710      0.140      5.075      0.000
-    Category 3         0.168      0.141      1.190      0.234
+    Category 1         0.729      0.070     10.414      0.000
+    Category 2         0.248      0.072      3.459      0.001
+    Category 3         0.023      0.015      1.519      0.129
     Category 4         0.000      0.000      0.000      1.000
  DISHONB1
-    Category 1         0.198      0.065      3.042      0.002
-    Category 2         0.497      0.095      5.251      0.000
-    Category 3         0.220      0.087      2.521      0.012
-    Category 4         0.084      0.077      1.095      0.274
+    Category 1         0.031      0.017      1.884      0.060
+    Category 2         0.038      0.021      1.798      0.072
+    Category 3         0.210      0.051      4.093      0.000
+    Category 4         0.721      0.063     11.431      0.000
+ INTELB1
+    Category 1         0.832      0.140      5.954      0.000
+    Category 2         0.168      0.140      1.200      0.230
+    Category 3         0.000      0.000      0.000      1.000
+    Category 4         0.000      0.000      0.000      1.000
 
 
 LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
@@ -649,466 +728,544 @@ LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
 Latent Class 1 Compared to Latent Class 2
 
  MORALB1
-    Category > 1       0.433      0.227      0.155      1.207
-    Category > 2       3.071      1.061      1.561      6.043
-    Category > 3      30.180     15.381     11.115     81.946
- CARESB1
-    Category > 1       0.270      0.383      0.017      4.367
-    Category > 2       7.222      6.381      1.278     40.804
-    Category > 3      14.324      5.455      6.791     30.214
- KNOWB1
     Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       1.280      0.633      0.485      3.373
-    Category > 3      12.123      4.101      6.247     23.528
+    Category > 2       3.859      2.884      0.892     16.693
+    Category > 3   *********      0.000  *********  *********
+ CARESB1
+    Category > 1       0.000      0.000      0.000      0.000
+    Category > 2       2.383      2.817      0.235     24.187
+    Category > 3       3.737      5.638      0.194     71.904
+ KNOWB1
+    Category > 1   *********      0.000  *********  *********
+    Category > 2      95.574    120.976      7.996   1142.343
+    Category > 3       7.631      6.690      1.369     42.548
  LEADB1
-    Category > 1       1.000      0.000      1.000      1.000
-    Category > 2   *********      0.000  *********  *********
-    Category > 3      27.284     10.923     12.449     59.799
+    Category > 1       5.156      4.446      0.951     27.944
+    Category > 2      10.213      5.643      3.458     30.166
+    Category > 3       8.835     15.596      0.278    281.081
  DISHONB1
-    Category > 1       0.031      0.034      0.004      0.260
-    Category > 2       0.218      0.070      0.116      0.410
-    Category > 3       1.379      0.456      0.721      2.638
+    Category > 1       0.012      0.949      0.000  *********
+    Category > 2       0.670      0.361      0.233      1.926
+    Category > 3       1.228      0.590      0.479      3.149
+ INTELB1
+    Category > 1   *********      0.000  *********  *********
+    Category > 2     365.999   2569.134      0.000  *********
+    Category > 3   *********      0.000  *********  *********
 
 Latent Class 1 Compared to Latent Class 3
 
  MORALB1
-    Category > 1      38.693     31.239      7.951    188.304
-    Category > 2     117.016    101.111     21.514    636.451
-    Category > 3     178.286    198.528     20.103   1581.169
+    Category > 1       1.949      1.187      0.591      6.428
+    Category > 2       0.254      0.081      0.136      0.474
+    Category > 3       0.041      0.018      0.017      0.099
  CARESB1
-    Category > 1      74.834     75.950     10.238    547.027
-    Category > 2     673.446    748.492     76.248   5948.074
-    Category > 3   *********      0.000  *********  *********
+    Category > 1       1.424      1.994      0.091     22.159
+    Category > 2       0.185      0.116      0.054      0.631
+    Category > 3       0.084      0.027      0.045      0.158
  KNOWB1
-    Category > 1      26.660     24.492      4.404    161.387
-    Category > 2     476.731   2066.646      0.097  *********
-    Category > 3   *********      0.000  *********  *********
- LEADB1
     Category > 1   *********      0.000  *********  *********
-    Category > 2   *********      0.000  *********  *********
-    Category > 3   *********      0.000  *********  *********
+    Category > 2       0.578      0.353      0.175      1.915
+    Category > 3       0.034      0.015      0.014      0.082
+ LEADB1
+    Category > 1       0.000      0.000      0.000      0.000
+    Category > 2       0.051      0.065      0.004      0.609
+    Category > 3       0.031      0.011      0.015      0.064
  DISHONB1
-    Category > 1       0.085      0.055      0.024      0.300
-    Category > 2       0.030      0.032      0.004      0.233
-    Category > 3       0.074      0.035      0.029      0.185
+    Category > 1      32.348     27.221      6.217    168.324
+    Category > 2       4.866      1.529      2.629      9.007
+    Category > 3       0.773      0.308      0.353      1.689
+ INTELB1
+    Category > 1   *********      0.000  *********  *********
+    Category > 2       0.498      0.238      0.196      1.270
+    Category > 3       0.068      0.026      0.032      0.146
 
 Latent Class 1 Compared to Latent Class 4
 
  MORALB1
-    Category > 1       3.099      2.415      0.673     14.278
-    Category > 2     155.526    161.302     20.369   1187.507
-    Category > 3   *********      0.000  *********  *********
+    Category > 1       4.699      5.058      0.570     38.753
+    Category > 2       0.867      0.420      0.335      2.240
+    Category > 3       0.176      0.141      0.036      0.845
  CARESB1
-    Category > 1       3.587      4.792      0.262     49.175
-    Category > 2     306.665    317.559     40.291   2334.106
-    Category > 3     169.315    121.948     41.268    694.669
+    Category > 1       5.611      8.888      0.252    125.142
+    Category > 2       0.193      0.202      0.025      1.508
+    Category > 3       0.313      0.155      0.119      0.826
  KNOWB1
-    Category > 1       1.789      1.095      0.539      5.935
-    Category > 2      31.693     14.044     13.298     75.535
-    Category > 3     327.953    493.420     17.184   6259.035
- LEADB1
     Category > 1   *********      0.000  *********  *********
-    Category > 2   *********      0.000  *********  *********
-    Category > 3     203.606    118.096     65.323    634.623
+    Category > 2      29.914     21.835      7.154    125.082
+    Category > 3   *********      0.000  *********  *********
+ LEADB1
+    Category > 1      12.848     12.755      1.836     89.926
+    Category > 2       3.837      1.533      1.754      8.395
+    Category > 3       0.442      0.314      0.110      1.780
  DISHONB1
-    Category > 1       0.017      0.014      0.003      0.088
-    Category > 2       0.073      0.026      0.037      0.145
-    Category > 3       0.186      0.105      0.062      0.563
+    Category > 1      22.826     25.320      2.595    200.756
+    Category > 2       2.892      1.124      1.351      6.193
+    Category > 3       0.678      0.416      0.203      2.256
+ INTELB1
+    Category > 1   *********      0.000  *********  *********
+    Category > 2      25.380     24.046      3.963    162.537
+    Category > 3      12.330     27.452      0.157    968.549
 
 Latent Class 1 Compared to Latent Class 5
 
  MORALB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2      14.739      9.403      4.221     51.466
+    Category > 1       8.887      7.312      1.772     44.579
+    Category > 2     108.772    384.980      0.106  *********
     Category > 3   *********      0.000  *********  *********
  CARESB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2      27.872     33.607      2.623    296.165
-    Category > 3     196.539    269.037     13.435   2875.148
+    Category > 1      16.887     20.931      1.488    191.695
+    Category > 2      73.691     70.310     11.357    478.165
+    Category > 3     163.184   1738.747      0.000  *********
  KNOWB1
-    Category > 1       0.830      0.452      0.285      2.412
-    Category > 2      25.844     12.364     10.119     66.006
-    Category > 3     236.511    505.718      3.579  15630.011
- LEADB1
     Category > 1   *********      0.000  *********  *********
-    Category > 2   *********      0.000  *********  *********
+    Category > 2      62.112     55.394     10.815    356.722
     Category > 3   *********      0.000  *********  *********
+ LEADB1
+    Category > 1      25.862     30.178      2.627    254.641
+    Category > 2      78.309     43.505     26.358    232.652
+    Category > 3       7.632      7.021      1.258     46.317
  DISHONB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       0.103      0.052      0.038      0.278
-    Category > 3       2.236      2.035      0.376     13.306
+    Category > 1       0.457      0.674      0.025      8.224
+    Category > 2       0.257      0.092      0.128      0.518
+    Category > 3       0.116      0.090      0.025      0.536
+ INTELB1
+    Category > 1   *********      0.000  *********  *********
+    Category > 2      55.583     57.670      7.274    424.742
+    Category > 3   *********      0.000  *********  *********
 
 Latent Class 1 Compared to Latent Class 6
 
  MORALB1
-    Category > 1       1.272      1.179      0.207      7.819
-    Category > 2       1.445      1.001      0.372      5.616
-    Category > 3       4.194      2.323      1.416     12.422
+    Category > 1      48.599     29.240     14.945    158.041
+    Category > 2      29.560     20.755      7.465    117.046
+    Category > 3       7.430      8.280      0.836     66.004
  CARESB1
-    Category > 1       0.843      2.375      0.003    211.129
-    Category > 2       0.843      2.375      0.003    211.129
-    Category > 3       5.784      4.124      1.430     23.398
+    Category > 1     158.515    160.867     21.688   1158.553
+    Category > 2      38.459     23.330     11.712    126.287
+    Category > 3   *********      0.000  *********  *********
  KNOWB1
-    Category > 1       1.599      1.356      0.303      8.431
-    Category > 2      12.497      6.046      4.842     32.257
+    Category > 1   *********      0.000  *********  *********
+    Category > 2    5511.918  50446.656      0.000  *********
     Category > 3   *********      0.000  *********  *********
  LEADB1
+    Category > 1     323.729    260.214     66.984   1564.559
+    Category > 2     118.470     85.950     28.579    491.094
+    Category > 3   *********      0.000  *********  *********
+ DISHONB1
+    Category > 1       3.135      2.902      0.511     19.246
+    Category > 2       0.209      0.091      0.089      0.489
+    Category > 3       0.079      0.037      0.032      0.200
+ INTELB1
     Category > 1   *********      0.000  *********  *********
     Category > 2   *********      0.000  *********  *********
     Category > 3   *********      0.000  *********  *********
- DISHONB1
-    Category > 1       0.649      0.317      0.249      1.693
-    Category > 2       1.373      0.742      0.476      3.960
-    Category > 3       3.117      3.141      0.433     22.459
 
 Latent Class 2 Compared to Latent Class 3
 
  MORALB1
-    Category > 1      89.456     76.171     16.858    474.693
-    Category > 2      38.104     33.076      6.951    208.871
-    Category > 3       5.908      7.194      0.543     64.267
+    Category > 1   *********      0.000  *********  *********
+    Category > 2       0.066      0.049      0.015      0.285
+    Category > 3       0.000      0.000      0.000      0.000
  CARESB1
-    Category > 1     277.561    304.314     32.366   2380.240
-    Category > 2      93.245     61.384     25.660    338.833
-    Category > 3   *********      0.000  *********  *********
+    Category > 1   29457.779      0.000  29457.777  29457.777
+    Category > 2       0.078      0.105      0.005      1.103
+    Category > 3       0.023      0.034      0.001      0.446
  KNOWB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2     372.569   1548.106      0.108  *********
-    Category > 3   *********      0.000  *********  *********
+    Category > 1       1.159      1.548      0.084     15.892
+    Category > 2       0.006      0.010      0.000      0.141
+    Category > 3       0.004      0.003      0.001      0.020
  LEADB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2     336.647    511.298     17.153   6606.938
-    Category > 3   *********      0.000  *********  *********
+    Category > 1       0.000      0.000      0.000      0.000
+    Category > 2       0.005      0.007      0.000      0.082
+    Category > 3       0.004      0.006      0.000      0.102
  DISHONB1
-    Category > 1       2.733      3.212      0.273     27.356
-    Category > 2       0.140      0.137      0.020      0.955
-    Category > 3       0.053      0.025      0.021      0.134
+    Category > 1    2612.435  *********      0.000  *********
+    Category > 2       7.266      4.592      2.105     25.076
+    Category > 3       0.629      0.374      0.196      2.020
+ INTELB1
+    Category > 1       0.675      0.586      0.123      3.704
+    Category > 2       0.001      0.010      0.000   1984.727
+    Category > 3       0.000      0.000      0.000      0.000
 
 Latent Class 2 Compared to Latent Class 4
 
  MORALB1
-    Category > 1       7.165      5.850      1.446     35.499
-    Category > 2      50.643     48.157      7.854    326.544
-    Category > 3   *********      0.000  *********  *********
+    Category > 1   *********      0.000  *********  *********
+    Category > 2       0.225      0.215      0.034      1.469
+    Category > 3       0.000      0.000      0.000      0.000
  CARESB1
-    Category > 1      13.306     18.810      0.833    212.529
-    Category > 2      42.461     24.628     13.623    132.343
-    Category > 3      11.821      7.157      3.608     38.726
+    Category > 1   *********      0.000  *********  *********
+    Category > 2       0.081      0.134      0.003      2.056
+    Category > 3       0.084      0.135      0.004      1.950
  KNOWB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2      24.768      9.290     11.875     51.661
-    Category > 3      27.052     38.833      1.623    450.957
+    Category > 1       5.351      8.188      0.267    107.366
+    Category > 2       0.313      0.567      0.009     10.892
+    Category > 3   35067.621      0.000  35067.621  35067.621
  LEADB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2     123.885     66.263     43.423    353.440
-    Category > 3       7.462      4.592      2.234     24.926
+    Category > 1       2.492      2.215      0.436     14.229
+    Category > 2       0.376      0.265      0.094      1.494
+    Category > 3       0.050      0.090      0.001      1.699
  DISHONB1
-    Category > 1       0.542      0.715      0.041      7.206
-    Category > 2       0.335      0.102      0.184      0.609
-    Category > 3       0.135      0.075      0.046      0.401
+    Category > 1    1843.412  *********      0.000  *********
+    Category > 2       4.319      2.657      1.293     14.423
+    Category > 3       0.552      0.464      0.106      2.870
+ INTELB1
+    Category > 1       4.997      3.772      1.138     21.936
+    Category > 2       0.069      0.523      0.000  *********
+    Category > 3       0.000      0.000      0.000      0.000
 
 Latent Class 2 Compared to Latent Class 5
 
  MORALB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       4.799      2.587      1.668     13.806
-    Category > 3   *********      0.000  *********  *********
+    Category > 1   *********      0.000  *********  *********
+    Category > 2      28.186     86.982      0.067  11936.621
+    Category > 3       1.000      0.000      1.000      1.000
  CARESB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       3.859      3.659      0.602     24.750
-    Category > 3      13.721     18.995      0.910    206.899
+    Category > 1   *********      0.000  *********  *********
+    Category > 2      30.929     31.650      4.162    229.840
+    Category > 3      43.673    514.513      0.000  *********
  KNOWB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2      20.197     11.163      6.836     59.672
-    Category > 3      19.509     43.763      0.240   1583.779
+    Category > 1       2.233      3.726      0.085     58.754
+    Category > 2       0.650      1.313      0.012     34.112
+    Category > 3   35067.621      0.000  35067.621  35067.621
  LEADB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2      26.687     25.736      4.031    176.672
-    Category > 3   *********      0.000  *********  *********
+    Category > 1       5.016      4.206      0.970     25.948
+    Category > 2       7.668      4.136      2.664     22.071
+    Category > 3       0.864      1.698      0.018     40.681
  DISHONB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       0.471      0.217      0.192      1.161
-    Category > 3       1.621      1.523      0.257     10.229
+    Category > 1      36.917   2862.165      0.000  *********
+    Category > 2       0.384      0.224      0.122      1.206
+    Category > 3       0.094      0.057      0.029      0.306
+ INTELB1
+    Category > 1       1.694      2.074      0.154     18.660
+    Category > 2       0.152      1.206      0.000  *********
+    Category > 3       1.000      0.000      1.000      1.000
 
 Latent Class 2 Compared to Latent Class 6
 
  MORALB1
-    Category > 1       2.941      3.076      0.379     22.837
-    Category > 2       0.471      0.317      0.125      1.765
-    Category > 3       0.139      0.092      0.038      0.509
+    Category > 1   *********      0.000  *********  *********
+    Category > 2       7.660      9.545      0.666     88.091
+    Category > 3       0.000      0.000      0.000      0.000
  CARESB1
-    Category > 1       3.126      8.051      0.020    486.816
-    Category > 2       0.117      0.268      0.001     10.539
-    Category > 3       0.404      0.238      0.127      1.285
+    Category > 1   *********      0.000  *********  *********
+    Category > 2      16.142     26.106      0.678    384.265
+    Category > 3   *********      0.000  *********  *********
  KNOWB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2       9.767      5.647      3.144     30.335
-    Category > 3   *********      0.000  *********  *********
+    Category > 1     107.210    172.649      4.565   2517.787
+    Category > 2      57.672    567.235      0.000  *********
+    Category > 3   35067.621      0.000  35067.621  35067.621
  LEADB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2      29.396     31.797      3.528    244.924
-    Category > 3   *********      0.000  *********  *********
+    Category > 1      62.784     33.708     21.920    179.825
+    Category > 2      11.600     12.111      1.499     89.776
+    Category > 3   31866.523      0.000  31866.523  31866.523
  DISHONB1
-    Category > 1      20.898     23.554      2.295    190.334
-    Category > 2       6.301      3.171      2.350     16.898
-    Category > 3       2.260      2.372      0.289     17.682
+    Category > 1     253.161  19367.457      0.000  *********
+    Category > 2       0.312      0.228      0.074      1.309
+    Category > 3       0.065      0.048      0.015      0.273
+ INTELB1
+    Category > 1      56.300     79.863      3.492    907.793
+    Category > 2   23706.520      0.000  23706.521  23706.521
+    Category > 3       1.000      0.000      1.000      1.000
 
 Latent Class 3 Compared to Latent Class 4
 
  MORALB1
-    Category > 1       0.080      0.033      0.036      0.179
-    Category > 2       1.329      1.974      0.072     24.437
-    Category > 3   17254.791      0.000  17254.789  17254.789
+    Category > 1       2.411      2.116      0.431     13.471
+    Category > 2       3.409      1.716      1.272      9.142
+    Category > 3       4.265      2.897      1.127     16.144
  CARESB1
-    Category > 1       0.048      0.031      0.013      0.171
-    Category > 2       0.455      0.370      0.093      2.235
-    Category > 3       0.000      0.000      0.000      0.000
+    Category > 1       3.942      5.642      0.238     65.175
+    Category > 2       1.040      1.291      0.091     11.862
+    Category > 3       3.718      1.975      1.312     10.533
  KNOWB1
-    Category > 1       0.067      0.031      0.027      0.168
-    Category > 2       0.066      0.279      0.000    245.256
-    Category > 3       0.000      0.000      0.000      0.000
+    Category > 1       4.618      4.853      0.589     36.213
+    Category > 2      51.743     35.076     13.703    195.378
+    Category > 3   *********      0.000  *********  *********
  LEADB1
-    Category > 1       0.032      0.015      0.013      0.082
-    Category > 2       0.368      0.597      0.015      8.848
-    Category > 3       0.000      0.000      0.000      0.000
+    Category > 1   *********      0.000  *********  *********
+    Category > 2      74.615     95.929      6.004    927.266
+    Category > 3      14.215      9.338      3.923     51.510
  DISHONB1
-    Category > 1       0.198      0.186      0.031      1.249
-    Category > 2       2.398      2.644      0.276     20.822
-    Category > 3       2.531      1.125      1.059      6.049
+    Category > 1       0.706      0.502      0.175      2.843
+    Category > 2       0.594      0.267      0.247      1.433
+    Category > 3       0.877      0.460      0.313      2.454
+ INTELB1
+    Category > 1       7.400      5.537      1.707     32.078
+    Category > 2      50.923     41.348     10.370    250.076
+    Category > 3     180.357    385.823      2.724  11941.870
 
 Latent Class 3 Compared to Latent Class 5
 
  MORALB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       0.126      0.138      0.015      1.085
-    Category > 3   17254.791      0.000  17254.789  17254.789
+    Category > 1       4.559      4.415      0.683     30.420
+    Category > 2     427.762   1518.946      0.406  *********
+    Category > 3   *********      0.000  *********  *********
  CARESB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       0.041      0.043      0.005      0.315
-    Category > 3       0.000      0.000      0.000      0.000
+    Category > 1      11.863     17.440      0.665    211.622
+    Category > 2     397.519    451.889     42.827   3689.778
+    Category > 3    1937.685  20629.227      0.000  *********
  KNOWB1
-    Category > 1       0.031      0.030      0.005      0.209
-    Category > 2       0.054      0.236      0.000    278.069
-    Category > 3       0.000      0.000      0.000      0.000
+    Category > 1       1.927      1.639      0.364     10.203
+    Category > 2     107.436     81.970     24.082    479.292
+    Category > 3   *********      0.000  *********  *********
  LEADB1
-    Category > 1       0.013      0.015      0.002      0.116
-    Category > 2       0.079      0.106      0.006      1.084
-    Category > 3       1.000      0.000      1.000      1.000
+    Category > 1   *********      0.000  *********  *********
+    Category > 2    1522.604   2164.531     93.864  24698.795
+    Category > 3     245.418    218.855     42.739   1409.257
  DISHONB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       3.377      3.089      0.562     20.285
-    Category > 3      30.350     22.190      7.241    127.206
+    Category > 1       0.014      0.018      0.001      0.182
+    Category > 2       0.053      0.023      0.022      0.125
+    Category > 3       0.150      0.141      0.024      0.950
+ INTELB1
+    Category > 1       2.509      1.908      0.565     11.142
+    Category > 2     111.524    101.312     18.797    661.668
+    Category > 3   *********      0.000  *********  *********
 
 Latent Class 3 Compared to Latent Class 6
 
  MORALB1
-    Category > 1       0.033      0.032      0.005      0.227
-    Category > 2       0.012      0.011      0.002      0.073
-    Category > 3       0.024      0.029      0.002      0.266
+    Category > 1      24.932     12.257      9.512     65.350
+    Category > 2     116.249     85.255     27.614    489.392
+    Category > 3     180.491    194.777     21.770   1496.402
  CARESB1
-    Category > 1       0.011      0.027      0.000      1.185
-    Category > 2       0.001      0.003      0.000      0.092
-    Category > 3       0.000      0.000      0.000      0.000
+    Category > 1     111.353    115.251     14.645    846.677
+    Category > 2     207.463    158.830     46.266    930.292
+    Category > 3   *********      0.000  *********  *********
  KNOWB1
-    Category > 1       0.060      0.056      0.010      0.378
-    Category > 2       0.026      0.114      0.000    135.743
-    Category > 3       1.000      0.000      1.000      1.000
+    Category > 1      92.528    104.254     10.167    842.097
+    Category > 2    9534.045  85764.000      0.000  *********
+    Category > 3   *********      0.000  *********  *********
  LEADB1
-    Category > 1       0.028      0.025      0.005      0.157
-    Category > 2       0.087      0.172      0.002      4.173
-    Category > 3       1.000      0.000      1.000      1.000
+    Category > 1   *********      0.000  *********  *********
+    Category > 2    2303.467   3159.894    156.561  33890.727
+    Category > 3   *********      0.000  *********  *********
  DISHONB1
-    Category > 1       7.646      5.898      1.686     34.682
-    Category > 2      45.127     41.669      7.386    275.700
-    Category > 3      42.321     43.639      5.608    319.358
+    Category > 1       0.097      0.058      0.030      0.311
+    Category > 2       0.043      0.020      0.017      0.107
+    Category > 3       0.103      0.041      0.047      0.223
+ INTELB1
+    Category > 1      83.363     84.167     11.522    603.124
+    Category > 2   *********      0.000  *********  *********
+    Category > 3   *********      0.000  *********  *********
 
 Latent Class 4 Compared to Latent Class 5
 
  MORALB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       0.095      0.079      0.019      0.485
-    Category > 3       1.000      0.000      1.000      1.000
+    Category > 1       1.891      2.844      0.099     36.030
+    Category > 2     125.465    466.089      0.086  *********
+    Category > 3   *********      0.000  *********  *********
  CARESB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       0.091      0.062      0.024      0.346
-    Category > 3       1.161      2.053      0.036     37.161
+    Category > 1       3.009      5.291      0.096     94.434
+    Category > 2     382.405    560.235     21.650   6754.341
+    Category > 3     521.205   5502.709      0.000  *********
  KNOWB1
-    Category > 1       0.464      0.332      0.114      1.888
-    Category > 2       0.815      0.481      0.257      2.591
-    Category > 3       0.721      2.371      0.001    453.917
+    Category > 1       0.417      0.464      0.047      3.693
+    Category > 2       2.076      1.374      0.568      7.597
+    Category > 3       1.000      0.000      1.000      1.000
  LEADB1
-    Category > 1       0.416      0.565      0.029      5.964
-    Category > 2       0.215      0.205      0.033      1.395
-    Category > 3   57986.535      0.000  57986.531  57986.531
+    Category > 1       2.013      2.766      0.136     29.749
+    Category > 2      20.406     13.937      5.350     77.828
+    Category > 3      17.264     16.726      2.585    115.305
  DISHONB1
-    Category > 1       0.000      0.000      0.000      0.000
-    Category > 2       1.408      0.850      0.432      4.595
-    Category > 3      11.990      7.481      3.529     40.729
+    Category > 1       0.020      0.030      0.001      0.360
+    Category > 2       0.089      0.044      0.034      0.233
+    Category > 3       0.171      0.205      0.016      1.796
+ INTELB1
+    Category > 1       0.339      0.334      0.049      2.332
+    Category > 2       2.190      2.058      0.347     13.811
+    Category > 3   23746.820      0.000  23746.820  23746.820
 
 Latent Class 4 Compared to Latent Class 6
 
  MORALB1
-    Category > 1       0.411      0.417      0.056      3.010
-    Category > 2       0.009      0.010      0.001      0.081
-    Category > 3       0.000      0.000      0.000      0.000
+    Category > 1      10.342      7.579      2.459     43.492
+    Category > 2      34.097     23.038      9.069    128.191
+    Category > 3      42.316     54.345      3.414    524.438
  CARESB1
-    Category > 1       0.235      0.630      0.001     45.075
-    Category > 2       0.003      0.006      0.000      0.264
-    Category > 3       0.034      0.019      0.011      0.103
+    Category > 1      28.249     26.040      4.638    172.049
+    Category > 2     199.575    229.146     21.026   1894.308
+    Category > 3   *********      0.000  *********  *********
  KNOWB1
-    Category > 1       0.894      0.636      0.222      3.604
-    Category > 2       0.394      0.217      0.134      1.157
-    Category > 3   14446.535      0.000  14446.534  14446.534
+    Category > 1      20.035     33.928      0.725    553.739
+    Category > 2     184.258   1640.338      0.000  *********
+    Category > 3       1.000      0.000      1.000      1.000
  LEADB1
-    Category > 1       0.877      0.958      0.103      7.457
-    Category > 2       0.237      0.255      0.029      1.946
-    Category > 3   57986.535      0.000  57986.531  57986.531
+    Category > 1      25.196     18.676      5.894    107.715
+    Category > 2      30.872     21.872      7.700    123.777
+    Category > 3   *********      0.000  *********  *********
  DISHONB1
-    Category > 1      38.572     36.394      6.069    245.149
-    Category > 2      18.820     10.233      6.484     54.630
-    Category > 3      16.719     18.954      1.812    154.240
+    Category > 1       0.137      0.132      0.021      0.907
+    Category > 2       0.072      0.035      0.028      0.189
+    Category > 3       0.117      0.053      0.048      0.284
+ INTELB1
+    Category > 1      11.266     14.934      0.838    151.392
+    Category > 2   *********      0.000  *********  *********
+    Category > 3   23746.820      0.000  23746.820  23746.820
 
 Latent Class 5 Compared to Latent Class 6
 
  MORALB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2       0.098      0.078      0.021      0.465
+    Category > 1       5.468      5.956      0.647     46.241
+    Category > 2       0.272      1.075      0.000    632.020
     Category > 3       0.000      0.000      0.000      0.000
  CARESB1
-    Category > 1   55048.602      0.000  55048.602  55048.602
-    Category > 2       0.030      0.078      0.000      4.867
-    Category > 3       0.029      0.048      0.001      0.743
+    Category > 1       9.387     10.916      0.961     91.716
+    Category > 2       0.522      0.661      0.044      6.247
+    Category > 3    7479.405      0.000   7479.405   7479.405
  KNOWB1
-    Category > 1       1.928      1.727      0.333     11.163
-    Category > 2       0.484      0.269      0.162      1.440
-    Category > 3   20031.947      0.000  20031.947  20031.947
- LEADB1
-    Category > 1       2.107      1.505      0.520      8.546
-    Category > 2       1.102      1.459      0.082     14.768
+    Category > 1      48.005     44.026      7.955    289.701
+    Category > 2      88.741    781.786      0.000  *********
     Category > 3       1.000      0.000      1.000      1.000
+ LEADB1
+    Category > 1      12.517     11.274      2.142     73.140
+    Category > 2       1.513      1.548      0.204     11.243
+    Category > 3   36886.016      0.000  36886.016  36886.016
  DISHONB1
-    Category > 1   *********      0.000  *********  *********
-    Category > 2      13.364      7.839      4.233     42.194
-    Category > 3       1.394      1.898      0.097     20.091
+    Category > 1       6.858      9.776      0.419    112.122
+    Category > 2       0.813      0.490      0.249      2.650
+    Category > 3       0.686      0.775      0.075      6.276
+ INTELB1
+    Category > 1      33.231     19.719     10.386    106.329
+    Category > 2   *********      0.000  *********  *********
+    Category > 3       1.000      0.000      1.000      1.000
 
 
 MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
 
      %OVERALL%
 
-     [ c#1*0.15953 ];
-     [ c#2*1.10143 ];
-     [ c#3*0.41786 ];
-     [ c#4*1.37810 ];
-     [ c#5*1.04385 ];
+     [ c#1*0.52800 ];
+     [ c#2*0.65051 ];
+     [ c#3*-0.40340 ];
+     [ c#4*-0.24762 ];
+     [ c#5*0.65557 ];
 
      %C#1%
 
-     [ moralb1$1*-2.10306 ];
-     [ moralb1$2*-1.14769 ];
-     [ moralb1$3*0.06077 ];
-     [ caresb1$1*-3.91291 ];
-     [ caresb1$2*-3.91291 ];
-     [ caresb1$3*-1.87184 ];
-     [ knowb1$1*-2.33453 ];
-     [ knowb1$2*-1.23261 ];
-     [ knowb1$3*-0.37108 ];
-     [ leadb1$1*-15 ];
-     [ leadb1$2*-15 ];
-     [ leadb1$3*-1.28415 ];
-     [ dishonb1$1*-0.96571 ];
-     [ dishonb1$2*0.50935 ];
-     [ dishonb1$3*1.25226 ];
+     [ moralb1$1*-2.94279 ];
+     [ moralb1$2*0.04916 ];
+     [ moralb1$3*3.34400 ];
+     [ caresb1$1*-5.06243 ];
+     [ caresb1$2*-1.54223 ];
+     [ caresb1$3*0.98522 ];
+     [ knowb1$1*-15 ];
+     [ knowb1$2*-1.65442 ];
+     [ knowb1$3*2.50276 ];
+     [ leadb1$1*-4.78981 ];
+     [ leadb1$2*-1.03672 ];
+     [ leadb1$3*2.45202 ];
+     [ dishonb1$1*-4.58113 ];
+     [ dishonb1$2*-1.03956 ];
+     [ dishonb1$3*1.58615 ];
+     [ intelb1$1*-15 ];
+     [ intelb1$2*-0.97613 ];
+     [ intelb1$3*2.41272 ];
 
      %C#2%
 
-     [ moralb1$1*-2.94115 ];
-     [ moralb1$2*-0.02569 ];
-     [ moralb1$3*3.46793 ];
-     [ caresb1$1*-5.22367 ];
-     [ caresb1$2*-1.93572 ];
-     [ caresb1$3*0.79008 ];
-     [ knowb1$1*-15 ];
-     [ knowb1$2*-0.98608 ];
-     [ knowb1$3*2.12404 ];
-     [ leadb1$1*-15 ];
-     [ leadb1$2*-1.77891 ];
-     [ leadb1$3*2.02216 ];
-     [ dishonb1$1*-4.43767 ];
-     [ dishonb1$2*-1.01458 ];
-     [ dishonb1$3*1.57389 ];
+     [ moralb1$1*-15 ];
+     [ moralb1$2*1.39959 ];
+     [ moralb1$3*15 ];
+     [ caresb1$1*-15 ];
+     [ caresb1$2*-0.67405 ];
+     [ caresb1$3*2.30337 ];
+     [ knowb1$1*-3.12626 ];
+     [ knowb1$2*2.90548 ];
+     [ knowb1$3*4.53497 ];
+     [ leadb1$1*-3.14960 ];
+     [ leadb1$2*1.28693 ];
+     [ leadb1$3*4.63069 ];
+     [ dishonb1$1*-8.97262 ];
+     [ dishonb1$2*-1.44049 ];
+     [ dishonb1$3*1.79190 ];
+     [ intelb1$1*-2.42908 ];
+     [ intelb1$2*4.92649 ];
+     [ intelb1$3*15 ];
 
      %C#3%
 
-     [ moralb1$1*1.55260 ];
-     [ moralb1$2*3.61462 ];
-     [ moralb1$3*5.24415 ];
-     [ caresb1$1*0.40237 ];
-     [ caresb1$2*2.59950 ];
-     [ caresb1$3*15 ];
-     [ knowb1$1*0.94862 ];
-     [ knowb1$2*4.93434 ];
-     [ knowb1$3*15 ];
-     [ leadb1$1*1.59449 ];
-     [ leadb1$2*4.04012 ];
-     [ leadb1$3*15 ];
-     [ dishonb1$1*-3.43216 ];
-     [ dishonb1$2*-2.98331 ];
-     [ dishonb1$3*-1.35601 ];
+     [ moralb1$1*-2.27534 ];
+     [ moralb1$2*-1.32015 ];
+     [ moralb1$3*0.15385 ];
+     [ caresb1$1*-4.70929 ];
+     [ caresb1$2*-3.22760 ];
+     [ caresb1$3*-1.48916 ];
+     [ knowb1$1*-2.97898 ];
+     [ knowb1$2*-2.20237 ];
+     [ knowb1$3*-0.88850 ];
+     [ leadb1$1*-15 ];
+     [ leadb1$2*-4.00424 ];
+     [ leadb1$3*-1.01855 ];
+     [ dishonb1$1*-1.10459 ];
+     [ dishonb1$2*0.54269 ];
+     [ dishonb1$3*1.32818 ];
+     [ intelb1$1*-2.82158 ];
+     [ intelb1$2*-1.67249 ];
+     [ intelb1$3*-0.27014 ];
 
      %C#4%
 
-     [ moralb1$1*-0.97196 ];
-     [ moralb1$2*3.89912 ];
-     [ moralb1$3*15 ];
-     [ caresb1$1*-2.63548 ];
-     [ caresb1$2*1.81285 ];
-     [ caresb1$3*3.25992 ];
-     [ knowb1$1*-1.75266 ];
-     [ knowb1$2*2.22348 ];
-     [ knowb1$3*5.42179 ];
-     [ leadb1$1*-1.84223 ];
-     [ leadb1$2*3.04044 ];
-     [ leadb1$3*4.03203 ];
-     [ dishonb1$1*-5.05054 ];
-     [ dishonb1$2*-2.10876 ];
-     [ dishonb1$3*-0.42726 ];
+     [ moralb1$1*-1.39541 ];
+     [ moralb1$2*-0.09361 ];
+     [ moralb1$3*1.60437 ];
+     [ caresb1$1*-3.33763 ];
+     [ caresb1$2*-3.18884 ];
+     [ caresb1$3*-0.17605 ];
+     [ knowb1$1*-1.44893 ];
+     [ knowb1$2*1.74392 ];
+     [ knowb1$3*15 ];
+     [ leadb1$1*-2.23659 ];
+     [ leadb1$2*0.30810 ];
+     [ leadb1$3*1.63577 ];
+     [ dishonb1$1*-1.45325 ];
+     [ dishonb1$2*0.02253 ];
+     [ dishonb1$3*1.19698 ];
+     [ intelb1$1*-0.82017 ];
+     [ intelb1$2*2.25783 ];
+     [ intelb1$3*4.92480 ];
 
      %C#5%
 
-     [ moralb1$1*-15 ];
-     [ moralb1$2*1.54279 ];
+     [ moralb1$1*-0.75815 ];
+     [ moralb1$2*4.73842 ];
      [ moralb1$3*15 ];
-     [ caresb1$1*-15 ];
-     [ caresb1$2*-0.58530 ];
-     [ caresb1$3*3.40902 ];
-     [ knowb1$1*-2.52133 ];
-     [ knowb1$2*2.01946 ];
-     [ knowb1$3*5.09492 ];
-     [ leadb1$1*-2.71923 ];
-     [ leadb1$2*1.50527 ];
-     [ leadb1$3*15 ];
-     [ dishonb1$1*-15 ];
-     [ dishonb1$2*-1.76643 ];
-     [ dishonb1$3*2.05678 ];
+     [ caresb1$1*-2.23587 ];
+     [ caresb1$2*2.75764 ];
+     [ caresb1$3*6.08009 ];
+     [ knowb1$1*-2.32279 ];
+     [ knowb1$2*2.47452 ];
+     [ knowb1$3*15 ];
+     [ leadb1$1*-1.53703 ];
+     [ leadb1$2*3.32394 ];
+     [ leadb1$3*4.48441 ];
+     [ dishonb1$1*-5.36395 ];
+     [ dishonb1$2*-2.39684 ];
+     [ dishonb1$3*-0.57049 ];
+     [ intelb1$1*-1.90188 ];
+     [ intelb1$2*3.04175 ];
+     [ intelb1$3*15 ];
 
      %C#6%
 
-     [ moralb1$1*-1.86234 ];
-     [ moralb1$2*-0.77960 ];
-     [ moralb1$3*1.49449 ];
-     [ caresb1$1*-4.08403 ];
-     [ caresb1$2*-4.08403 ];
-     [ caresb1$3*-0.11682 ];
-     [ knowb1$1*-1.86502 ];
-     [ knowb1$2*1.29289 ];
+     [ moralb1$1*0.94081 ];
+     [ moralb1$2*3.43559 ];
+     [ moralb1$3*5.34953 ];
+     [ caresb1$1*0.00342 ];
+     [ caresb1$2*2.10735 ];
+     [ caresb1$3*15 ];
+     [ knowb1$1*1.54853 ];
+     [ knowb1$2*6.96025 ];
      [ knowb1$3*15 ];
-     [ leadb1$1*-1.97386 ];
-     [ leadb1$2*1.60196 ];
+     [ leadb1$1*0.99009 ];
+     [ leadb1$2*3.73793 ];
      [ leadb1$3*15 ];
-     [ dishonb1$1*-1.39801 ];
-     [ dishonb1$2*0.82617 ];
-     [ dishonb1$3*2.38928 ];
+     [ dishonb1$1*-3.43860 ];
+     [ dishonb1$2*-2.60442 ];
+     [ dishonb1$3*-0.94778 ];
+     [ intelb1$1*1.60162 ];
+     [ intelb1$2*15 ];
+     [ intelb1$3*15 ];
 
 
 
@@ -1129,17 +1286,17 @@ TECHNICAL 11 OUTPUT
 
      VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
 
-          H0 Loglikelihood Value                        -8496.748
-          2 Times the Loglikelihood Difference             71.922
-          Difference in the Number of Parameters               16
-          Mean                                             34.139
-          Standard Deviation                               90.347
-          P-Value                                          0.2438
+          H0 Loglikelihood Value                        -9863.416
+          2 Times the Loglikelihood Difference            107.581
+          Difference in the Number of Parameters               19
+          Mean                                            182.044
+          Standard Deviation                              225.680
+          P-Value                                          0.6293
 
      LO-MENDELL-RUBIN ADJUSTED LRT TEST
 
-          Value                                            71.325
-          P-Value                                          0.2458
+          Value                                           106.829
+          P-Value                                          0.6305
 
 
 TECHNICAL 14 OUTPUT
@@ -1160,16 +1317,22 @@ TECHNICAL 14 OUTPUT
 
      PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
 
-          H0 Loglikelihood Value                        -8496.748
-          2 Times the Loglikelihood Difference             71.922
-          Difference in the Number of Parameters               16
+          H0 Loglikelihood Value                        -9863.416
+          2 Times the Loglikelihood Difference            107.581
+          Difference in the Number of Parameters               19
           Approximate P-Value                              0.0000
-          Successful Bootstrap Draws                           10
+          Successful Bootstrap Draws                            5
+
+     WARNING:  OF THE 5 BOOTSTRAP DRAWS, 3 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE
+     OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 6-CLASS MODEL.
+     THIS MEANS THAT THE P-VALUE MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.
+     INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
 
 
-     Beginning Time:  23:30:56
-        Ending Time:  23:31:15
-       Elapsed Time:  00:00:19
+
+     Beginning Time:  12:46:02
+        Ending Time:  12:46:20
+       Elapsed Time:  00:00:18
 
 
 
